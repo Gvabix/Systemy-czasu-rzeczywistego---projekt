@@ -1,1 +1,1 @@
-# Systemy-czasu-rzeczywistego---projekt
+# Systemy czasu rzeczywistego - projekt
