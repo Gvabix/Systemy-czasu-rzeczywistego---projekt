@@ -1,6 +1,14 @@
 # Systemy czasu rzeczywistego - Model Smart Akwarium w języku AADL
 
-Planowane komponenty projektu:
+# Autorzy:
+- Gabriela Bułat, gbulat@student.agh.edu.pl
+- Emilia Myrta, emiliamyrta@student.agh.edu.pl
+
+# Opis projektu
+
+Smart Akwarium to zintegrowany system sterowania akwarium, realizowany w języku AADL, którego celem jest monitorowanie i zarządzanie parametrami środowiska wodnego. System składa się z wielu komponentów podzielonych na różne typy AADL.
+
+# Planowane komponenty projektu:
  
  ### Pakiet
 - SmartAkwarium – główny pakiet zawierający wszystkie komponenty systemu inteligentnego akwarium.
