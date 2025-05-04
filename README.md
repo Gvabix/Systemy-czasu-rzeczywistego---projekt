@@ -28,23 +28,6 @@ Smart Akwarium to zintegrowany system sterowania akwarium, realizowany w języku
 
 - SensorReading – uogólniona struktura pojedynczego odczytu z czujnika.
 
-### Subprogram 
-- ReadTemperature – logika odczytu temperatury z czujnika.
-
-- ReadPH – logika odczytu pH z czujnika.
-
-- ReadLight – logika odczytu poziomu światła.
-
-- ControlHeater – sterowanie grzałką.
-
-- ControlLight – sterowanie oświetleniem.
-
-- SendNetworkPacket – wysyłanie pakietu danych przez sieć Wi-Fi.
-
-- ReceiveCommand – odbieranie komend z aplikacji mobilnej.
-
-- ControlSubsystem – grupa podprogramów odpowiedzialnych za sterowanie urządzeniami wykonawczymi (grzałka, światło).
-
 ### Threads
 - TempMonitor – wątek monitorujący temperaturę wody.
 
@@ -56,15 +39,10 @@ Smart Akwarium to zintegrowany system sterowania akwarium, realizowany w języku
 
 - ControlLoop – wątek przetwarzający dane i podejmujący decyzje sterujące.
 
-- MonitoringThreads – grupa wątków zajmujących się monitoringiem warunków w akwarium.
-
 ### Process
 - SensorProcess – proces zawierający wątki czujników (zbierających dane).
 
 - ControlProcess – proces zawierający logikę sterowania na podstawie danych z czujników.
-
-### Subprogram
-- PeriodicCheck – okresowe sprawdzanie stanu akwarium (np. co kilka sekund).
 
 ### Devices
 - TemperatureSensor – fizyczny czujnik temperatury.
