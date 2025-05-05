@@ -8,6 +8,20 @@
 
 Smart Akwarium to zintegrowany system sterowania akwarium, realizowany w języku AADL, którego celem jest monitorowanie i zarządzanie parametrami środowiska wodnego. System składa się z wielu komponentów podzielonych na różne typy AADL.
 
+# Funkcjonalności systemu:
+
+Monitorowanie oraz zmiana:
+
+- temperatury,
+
+- pH wody,
+
+- naświetlenia.
+
+Możliwość przesyłania statusu oraz alertów przez WiFi.
+
+Możliwość dokarmiania ryb.
+
 # Planowane komponenty projektu:
  
  ### Pakiet
@@ -70,3 +84,14 @@ Smart Akwarium to zintegrowany system sterowania akwarium, realizowany w języku
 
 ### System
 - SmartAkwariumSystem – top-level system integrujący wszystkie komponenty.
+
+# Bibliografia:
+
+- [Empowering Aquarists a Comprehensive Study On IOT-Enabled Smart Aquarium Systems For Remote Monitoring And Control](https://www.researchgate.net/publication/382053839_Empowering_Aquarists_a_Comprehensive_Study_On_IOT-Enabled_Smart_Aquarium_Systems_For_Remote_Monitoring_And_Control)
+
+- [Implementation of GSM Module based Smart Aquarium Monitoring and Controlling System](https://www.researchgate.net/publication/375553645_Implementation_of_GSM_Module_based_Smart_Aquarium_Monitoring_and_Controlling_System)
+
+- [Assess your aquarium’s health with an AI-enabled ultrasonic sensor](https://blog.arduino.cc/2024/05/07/assess-your-aquariums-health-with-an-ai-enabled-ultrasonic-sensor/)
+
+- [The Architecture Analysis and
+Design Language: an overview](http://www.openaadl.org/downloads/tutorial_models15/part1_introducing_aadl.pdf)
