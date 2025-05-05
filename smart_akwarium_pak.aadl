@@ -42,16 +42,44 @@ public
 
 
   -- ==== DEVICES ====
-  device TemperatureSensor end TemperatureSensor;
-  device PHSensor end PHSensor;
-  device LightSensor end LightSensor;
-  device HeaterActuator end HeaterActuator;
-  device LightActuator end LightActuator;
-  device WiFiModule end WiFiModule;
+  device TemperatureSensor 
+  	features
+  		temp_out: out data port TemperatureData;
+  end TemperatureSensor;
+  
+  device PHSensor 
+  	features
+  		ph_out: out data port PHData;
+  end PHSensor;
+  
+  device LightSensor 
+  	features
+  		light_out: out data port LightLevelData;
+  end LightSensor;
+  
+  device HeaterActuator 
+  	features
+  		heater_cmd: in data port Base_Types::Boolean;
+  end HeaterActuator;
+  
+  device LightActuator 
+  	features
+  		light_cmd: in data port Base_Types::Boolean;
+  end LightActuator;
+  
+  device WiFiModule 
+  	features
+  		command_out: out data port CommandData;
+  		status_in: in data port NetworkPacket;
+  end WiFiModule;
   	
 
   -- ==== THREADS ====
-  thread TempMonitor end TempMonitor;
+  thread TempMonitor 
+  	features
+  		temp_in: in data port TemperatureData;
+  		temp_out: out data port TemperatureData;
+  end TempMonitor;
   
   thread implementation TempMonitor.impl
 	properties
@@ -60,7 +88,11 @@ public
 	end TempMonitor.impl;
 	  
   
-  thread PHMonitor end PHMonitor;
+  thread PHMonitor 
+  	features
+  		ph_in: in data port PHData;
+  		ph_out: out data port PHData;
+  end PHMonitor;
   	
   thread implementation PHMonitor.impl
 	properties
@@ -68,7 +100,11 @@ public
 	  Period => 1000ms;
 	end PHMonitor.impl;
 
-  thread LightMonitor end LightMonitor;
+  thread LightMonitor 
+  	features
+  		light_in: in data port LightLevelData;
+  		light_out: out data port LightLevelData;
+  end LightMonitor;
   	
   thread implementation LightMonitor.impl
 	properties
@@ -76,7 +112,10 @@ public
 	  Period => 1000ms;
 	end LightMonitor.impl;
 	
-  thread NetworkReceiver end NetworkReceiver;
+  thread NetworkReceiver 
+  	features
+  		command_in: in data port CommandData;
+  end NetworkReceiver;
 	
   thread implementation NetworkReceiver.impl
 	properties
@@ -84,7 +123,15 @@ public
 	  Period => 1000ms;
 	end NetworkReceiver.impl;
 	
-  thread ControlLoop end ControlLoop;
+  thread ControlLoop 
+  	features
+	  heater_out: out data port Base_Types::Boolean;
+	  light_out: out data port Base_Types::Boolean;
+	  temp_in: in data port TemperatureData;
+  	  ph_in: in data port PHData;
+  	  light_in: in data port LightLevelData;
+  	  status_out: out data port NetworkPacket;
+  end ControlLoop;
 	
   thread implementation ControlLoop.impl
 	properties
@@ -93,22 +140,54 @@ public
 	end ControlLoop.impl;
 
   -- ==== PROCESS ====
-  process SensorProcess end SensorProcess;
+  process SensorProcess 
+  	features
+	  temp_in: in data port TemperatureData;
+	  ph_in: in data port PHData;
+	  light_in: in data port LightLevelData;
+	  temperature_out: out data port TemperatureData;
+  	  ph_out: out data port PHData;
+  	  light_out: out data port LightLevelData;
+  end SensorProcess;
   	
   process implementation SensorProcess.impl
 	subcomponents
 	  temp_monitor: thread TempMonitor.impl;
 	  ph_monitor: thread PHMonitor.impl;
 	  light_monitor: thread LightMonitor.impl;
-	end SensorProcess.impl;
+	connections
+	  temp_conn: port temp_in -> temp_monitor.temp_in;
+	  ph_conn: port ph_in -> ph_monitor.ph_in;
+	  light_conn: port light_in -> light_monitor.light_in;
+	  temp_data_out: port temp_monitor.temp_out -> temperature_out;
+	  ph_data_out: port ph_monitor.ph_out -> ph_out;
+	  light_data_out: port light_monitor.light_out -> light_out;
+  end SensorProcess.impl;
 
-  process ControlProcess end ControlProcess;
+  process ControlProcess 
+  	features
+  		command_in: in data port CommandData;
+  		heater_cmd: out data port Base_Types::Boolean;
+  		light_cmd: out data port Base_Types::Boolean;
+  		temperature_in: in data port TemperatureData;
+	    ph_in: in data port PHData;
+	    light_in: in data port LightLevelData;
+	    status_out: out data port NetworkPacket;
+  end ControlProcess;
 
   process implementation ControlProcess.impl
 	subcomponents
 	  control_loop: thread ControlLoop.impl;
 	  receiver: thread NetworkReceiver.impl;
-	end ControlProcess.impl;
+	connections
+  		cmd_conn: port command_in -> receiver.command_in;
+  		heater_conn: port control_loop.heater_out -> heater_cmd;
+  		light_conn: port control_loop.light_out -> light_cmd;
+  		temp_recv: port temperature_in -> control_loop.temp_in;
+	    ph_recv: port ph_in -> control_loop.ph_in;
+	    light_recv: port light_in -> control_loop.light_in;
+	    status_link: port control_loop.status_out -> status_out;
+  end ControlProcess.impl;
   
 
   -- ==== PROCESSOR ====
@@ -143,11 +222,18 @@ public
 	  i2c_bus: bus I2CBus;
 	  wifi_bus: bus WiFiBus;
 	
-	--connections
-	  -- Można dodać później połączenia device <-> bus itd.
-	end SmartAkwariumSystem.impl;
-
-
+	connections
+	  temp_conn: port temp_sensor.temp_out -> sensors.temp_in;
+	  ph_conn: port ph_sensor.ph_out -> sensors.ph_in;
+	  light_conn: port light_sensor.light_out -> sensors.light_in;
+	  command_conn: port wifi.command_out -> control.command_in;
+	  heater_ctrl: port control.heater_cmd -> heater.heater_cmd;
+  	  light_ctrl: port control.light_cmd -> light.light_cmd;
+  	  temp_data: port sensors.temperature_out -> control.temperature_in;
+	  ph_data: port sensors.ph_out -> control.ph_in;
+	  light_data: port sensors.light_out -> control.light_in;
+	  status_send: port control.status_out -> wifi.status_in;
+  end SmartAkwariumSystem.impl;
 	  
 
 end smart_akwarium;
