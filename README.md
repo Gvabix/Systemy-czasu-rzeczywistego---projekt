@@ -85,6 +85,10 @@ Możliwość dokarmiania ryb.
 ### System
 - SmartAkwariumSystem – top-level system integrujący wszystkie komponenty.
 
+# Architektura systemu.
+
+![Diagram smart akwarium](smart_akwarium_diagram.png)
+
 # Bibliografia:
 
 - [Empowering Aquarists a Comprehensive Study On IOT-Enabled Smart Aquarium Systems For Remote Monitoring And Control](https://www.researchgate.net/publication/382053839_Empowering_Aquarists_a_Comprehensive_Study_On_IOT-Enabled_Smart_Aquarium_Systems_For_Remote_Monitoring_And_Control)
