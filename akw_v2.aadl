@@ -1,0 +1,505 @@
+package smart_akwarium
+public
+  with Base_Types;
+  with Data_Model;
+  
+  -- ==== DATA ====
+  
+ data Timestamp
+  properties
+    Data_Model::Data_Representation => Struct;
+end Timestamp;
+
+data implementation Timestamp.impl
+  subcomponents
+    year       : data Base_Types::Integer;
+    month      : data Base_Types::Integer;
+    day        : data Base_Types::Integer;
+    hour       : data Base_Types::Integer;
+    minute     : data Base_Types::Integer;
+    second     : data Base_Types::Integer;
+end Timestamp.impl;
+  
+ data PHDoseData
+  properties
+    Data_Model::Data_Representation => Struct;
+end PHDoseData;
+
+data implementation PHDoseData.impl
+  subcomponents
+    amount: data Base_Types::Integer;  
+    direction: data Base_Types::Boolean;  
+end PHDoseData.impl;
+
+  data TemperatureData
+    properties
+      Data_Model::Data_Representation => Struct;
+    end TemperatureData;
+    
+  data implementation TemperatureData.impl
+  	subcomponents
+  		temperature: data Base_Types::Float;
+  		timesmp: data Timestamp.impl;
+  end TemperatureData.impl;
+
+  data PHData
+    properties
+      Data_Model::Data_Representation => Struct;
+    end PHData;
+    
+  data implementation PHData.impl
+  	subcomponents
+  		ph_level: data Base_Types::Float;
+  		timesmp: data Timestamp.impl;
+  end PHData.impl;
+  
+  data LightLevelData
+    properties
+      Data_Model::Data_Representation => Struct;
+    end LightLevelData;
+    
+  data implementation LightLevelData.impl
+  	subcomponents
+  		timesmp: data Timestamp.impl;
+  		light_level: data Base_Types::Integer;
+  end LightLevelData.impl;
+  
+  data CommandData
+    properties
+      Data_Model::Data_Representation => Struct;
+    end CommandData;
+    
+  
+data implementation CommandData.impl
+  subcomponents
+    command_type : data Base_Types::Integer;   
+    command_params : data Base_Types::String;  
+    timestamp : data Timestamp.impl;
+end CommandData.impl;
+  
+  data SchedulerConfig
+    properties
+      Data_Model::Data_Representation => Struct;
+    end SchedulerConfig;
+    
+ data implementation SchedulerConfig.impl
+  subcomponents
+    start_hour   : data Base_Types::Integer;
+    start_minute : data Base_Types::Integer;
+    end_hour     : data Base_Types::Integer;
+    end_minute   : data Base_Types::Integer;
+    enabled      : data Base_Types::Boolean;
+end SchedulerConfig.impl;
+  
+  data NetworkPacket
+    properties
+      Data_Model::Data_Representation => Struct;
+    end NetworkPacket;
+    
+  data implementation NetworkPacket.impl
+  subcomponents
+    packet_type : data Base_Types::Integer;
+    payload     : data Base_Types::String;  
+    length      : data Base_Types::Integer;
+    checksum    : data Base_Types::Integer;
+end NetworkPacket.impl;
+  
+  data SensorReading
+    properties
+      Data_Model::Data_Representation => Struct;
+    end SensorReading;
+    
+  data implementation SensorReading.impl
+  	subcomponents
+    value    : data Base_Types::Float;
+    type_id  : data Base_Types::Integer;
+    timesmp  : data Timestamp.impl;
+end SensorReading.impl;
+  
+  data WaterLevelData
+    properties
+      Data_Model::Data_Representation => Struct;
+    end WaterLevelData;
+    
+ data implementation WaterLevelData.impl
+  subcomponents
+    level   : data Base_Types::Integer;
+    timesmp : data Timestamp.impl;
+end WaterLevelData.impl;
+
+  data FeedingCommand
+    properties
+      Data_Model::Data_Representation => Struct;
+    end FeedingCommand;
+    
+ data implementation FeedingCommand.impl
+  subcomponents
+    feed_now    : data Base_Types::Boolean;  
+    feed_amount : data Base_Types::Integer;  
+    timestamp   : data Timestamp.impl;
+end FeedingCommand.impl;
+
+  data CameraCommand
+    properties
+      Data_Model::Data_Representation => Struct;
+    end CameraCommand;
+    
+  data implementation CameraCommand.impl
+  	subcomponents
+    recording : data Base_Types::Boolean;
+    take_snapshot   : data Base_Types::Boolean;
+    timestamp       : data Timestamp.impl;
+end CameraCommand.impl;
+
+  -- ==== DEVICES ====
+  device TemperatureSensor 
+    features
+      temp_out: out data port TemperatureData;
+      bus_access: requires bus access I2CBus;
+  end TemperatureSensor;
+
+  device PHSensor 
+    features
+      ph_out: out data port PHData;
+      bus_access: requires bus access I2CBus;
+  end PHSensor;
+
+  device LightSensor 
+    features
+      light_out: out data port LightLevelData;
+      bus_access: requires bus access I2CBus;
+  end LightSensor;
+
+  device HeaterActuator 
+    features
+      heater_cmd: in data port Base_Types::Boolean;
+      bus_access: requires bus access I2CBus;
+  end HeaterActuator;
+
+  device LightActuator 
+    features
+      light_cmd: in data port Base_Types::Boolean;
+      bus_access: requires bus access I2CBus;
+  end LightActuator;
+  
+  device PHActuator
+  	features
+  		ph_cmd: in data port PHDoseData;
+  		bus_access: requires bus access I2CBus;
+  end PHActuator;
+
+  device WiFiModule 
+    features
+      command_out: out data port CommandData;
+      status_in: in data port NetworkPacket;
+      bus_access: requires bus access I2CBus;
+  end WiFiModule;
+
+  device WaterLevelSensor
+    features
+      water_out: out data port WaterLevelData;
+      bus_access: requires bus access I2CBus;
+  end WaterLevelSensor;
+
+  device WaterPumpActuator
+    features
+      pump_cmd: in data port Base_Types::Boolean;
+      bus_access: requires bus access I2CBus;
+  end WaterPumpActuator;
+
+  device FishFeeder
+    features
+      feed_cmd: in data port FeedingCommand;
+      bus_access: requires bus access I2CBus;
+  end FishFeeder;
+
+  device FishCamera
+    features
+      camera_cmd: in data port CameraCommand;
+      bus_access: requires bus access WiFiBus;
+  end FishCamera;
+
+  device UserAppDevice
+  	features
+  	  in_app: in data port SensorReading;
+      app_out: out data port CommandData;
+      bus_access: requires bus access WiFiBus;
+  end UserAppDevice;
+
+  -- ==== THREADS ====
+  thread TempMonitor 
+    features
+      temp_in: in data port TemperatureData;
+      temp_out: out data port TemperatureData;
+  end TempMonitor;
+
+  thread implementation TempMonitor.impl
+    properties
+      Dispatch_Protocol => Periodic;
+      Period => 1000ms;
+  end TempMonitor.impl;
+
+  thread PHMonitor 
+    features
+      ph_in: in data port PHData;
+      ph_out: out data port PHData;
+  end PHMonitor;
+
+  thread implementation PHMonitor.impl
+    properties
+      Dispatch_Protocol => Periodic;
+      Period => 1000ms;
+  end PHMonitor.impl;
+
+  thread LightMonitor 
+    features
+      light_in: in data port LightLevelData;
+      light_out: out data port LightLevelData;
+  end LightMonitor;
+
+  thread implementation LightMonitor.impl
+    properties
+      Dispatch_Protocol => Periodic;
+      Period => 1000ms;
+  end LightMonitor.impl;
+  
+thread WaterLevelMonitor
+    features
+      water_in: in data port WaterLevelData;
+      water_out: out data port WaterLevelData;
+  end WaterLevelMonitor;
+
+  thread implementation WaterLevelMonitor.impl
+    properties
+      Dispatch_Protocol => Periodic;
+      Period => 1000ms;
+  end WaterLevelMonitor.impl;
+  
+  thread NetworkReceiver 
+    features
+      command_in: in data port CommandData;
+  end NetworkReceiver;
+
+  thread implementation NetworkReceiver.impl
+    properties
+      Dispatch_Protocol => Periodic;
+      Period => 1000ms;
+  end NetworkReceiver.impl;
+
+  thread ControlLoop 
+    features
+      heater_out: out data port Base_Types::Boolean;
+      light_out: out data port Base_Types::Boolean;
+      temp_in: in data port TemperatureData;
+      ph_in: in data port PHData;
+      light_in: in data port LightLevelData;
+      status_out: out data port NetworkPacket;
+  end ControlLoop;
+
+  thread implementation ControlLoop.impl
+    properties
+      Dispatch_Protocol => Periodic;
+      Period => 1000ms;
+  end ControlLoop.impl;
+
+
+
+  thread FeedingControl
+    features
+      feed_out: out data port FeedingCommand;
+  end FeedingControl;
+
+  thread implementation FeedingControl.impl
+    properties
+      Dispatch_Protocol => Periodic;
+      Period => 1000ms;
+  end FeedingControl.impl;
+
+  thread CameraControl
+    features
+      camera_out: out data port CameraCommand;
+  end CameraControl;
+
+  thread implementation CameraControl.impl
+    properties
+      Dispatch_Protocol => Periodic;
+      Period => 1000ms;
+  end CameraControl.impl;
+
+  thread WaterPumpControl
+    features
+      pump_out: out data port Base_Types::Boolean;
+  end WaterPumpControl;
+
+  thread implementation WaterPumpControl.impl
+    properties
+      Dispatch_Protocol => Periodic;
+      Period => 1000ms;
+  end WaterPumpControl.impl;
+
+  thread AllertManager
+    properties
+      Dispatch_Protocol => Periodic;
+      Period => 1000ms;
+  end AllertManager;
+
+  thread Logger
+    properties
+      Dispatch_Protocol => Periodic;
+      Period => 1000ms;
+  end Logger;
+
+  -- ==== PROCESS ====
+  process SensorProcess 
+    features
+      temp_in: in data port TemperatureData;
+      ph_in: in data port PHData;
+      light_in: in data port LightLevelData;
+      water_in: in data port WaterLevelData;
+
+      temperature_out: out data port TemperatureData;
+      ph_out: out data port PHData;
+      light_out: out data port LightLevelData;
+      water_out: out data port WaterLevelData;
+  end SensorProcess;
+
+  process implementation SensorProcess.impl
+    subcomponents
+      temp_monitor: thread TempMonitor.impl;
+      ph_monitor: thread PHMonitor.impl;
+      light_monitor: thread LightMonitor.impl;
+      water_monitor: thread WaterLevelMonitor.impl;
+    connections
+      temp_conn: port temp_in -> temp_monitor.temp_in;
+      ph_conn: port ph_in -> ph_monitor.ph_in;
+      light_conn: port light_in -> light_monitor.light_in;
+      water_conn: port water_in -> water_monitor.water_in;
+
+      temp_data_out: port temp_monitor.temp_out -> temperature_out;
+      ph_data_out: port ph_monitor.ph_out -> ph_out;
+      light_data_out: port light_monitor.light_out -> light_out;
+      water_data_out: port water_monitor.water_out -> water_out;
+  end SensorProcess.impl;
+
+  process ControlProcess 
+    features
+      command_in: in data port CommandData;
+      heater_cmd: out data port Base_Types::Boolean;
+      light_cmd: out data port Base_Types::Boolean;
+      pump_cmd: out data port Base_Types::Boolean;
+      feed_cmd: out data port FeedingCommand;
+      camera_cmd: out data port CameraCommand;
+
+      temperature_in: in data port TemperatureData;
+      ph_in: in data port PHData;
+      light_in: in data port LightLevelData;
+      water_in: in data port WaterLevelData;
+
+      status_out: out data port NetworkPacket;
+  end ControlProcess;
+
+  process implementation ControlProcess.impl
+    subcomponents
+      control_loop: thread ControlLoop.impl;
+      receiver: thread NetworkReceiver.impl;
+      feeder: thread FeedingControl.impl;
+      cam_ctrl: thread CameraControl.impl;
+      pump_ctrl: thread WaterPumpControl.impl;
+      alerts: thread AllertManager;
+      logger: thread Logger;
+    connections
+      cmd_conn: port command_in -> receiver.command_in;
+      heater_conn: port control_loop.heater_out -> heater_cmd;
+      light_conn: port control_loop.light_out -> light_cmd;
+
+      temp_recv: port temperature_in -> control_loop.temp_in;
+      ph_recv: port ph_in -> control_loop.ph_in;
+      light_recv: port light_in -> control_loop.light_in;
+      status_link: port control_loop.status_out -> status_out;
+
+      pump_cmd_conn: port pump_ctrl.pump_out -> pump_cmd;
+      feed_cmd_conn: port feeder.feed_out -> feed_cmd;
+      camera_cmd_conn: port cam_ctrl.camera_out -> camera_cmd;
+  end ControlProcess.impl;
+
+  -- ==== PROCESSOR ====
+  processor RPiController 
+    features
+      i2c: requires bus access I2CBus;
+      eth: requires bus access WiFiBus;
+  end RPiController;
+
+  -- ==== MEMORY ====
+  memory MainMemory 
+    features
+      mem_i2c: requires bus access I2CBus;
+      mem_wifi: requires bus access WiFiBus;
+  end MainMemory;
+
+  -- ==== BUS ====
+  bus I2CBus end I2CBus;
+  bus WiFiBus end WiFiBus;
+
+  -- ==== SYSTEM ====
+  system SmartAkwariumSystem end SmartAkwariumSystem;
+
+  system implementation SmartAkwariumSystem.impl
+    subcomponents
+      sensors: process SensorProcess.impl;
+      control: process ControlProcess.impl;
+      cpu: processor RPiController;
+      mem: memory MainMemory;
+
+      temp_sensor: device TemperatureSensor;
+      ph_sensor: device PHSensor;
+      light_sensor: device LightSensor;
+      water_sensor: device WaterLevelSensor;
+      heater: device HeaterActuator;
+      light: device LightActuator;
+      pump: device WaterPumpActuator;
+      feeder: device FishFeeder;
+      camera: device FishCamera;
+      wifi: device WiFiModule;
+      app: device UserAppDevice;
+
+      i2c_bus: bus I2CBus;
+      wifi_bus: bus WiFiBus;
+
+    connections
+      temp_conn: port temp_sensor.temp_out -> sensors.temp_in;
+      ph_conn: port ph_sensor.ph_out -> sensors.ph_in;
+      light_conn: port light_sensor.light_out -> sensors.light_in;
+      water_conn: port water_sensor.water_out -> sensors.water_in;
+
+      temp_data: port sensors.temperature_out -> control.temperature_in;
+      ph_data: port sensors.ph_out -> control.ph_in;
+      light_data: port sensors.light_out -> control.light_in;
+      water_data: port sensors.water_out -> control.water_in;
+
+      command_conn: port wifi.command_out -> control.command_in;
+      app_command: port app.app_out -> control.command_in;
+
+      heater_ctrl: port control.heater_cmd -> heater.heater_cmd;
+      light_ctrl: port control.light_cmd -> light.light_cmd;
+      pump_ctrl: port control.pump_cmd -> pump.pump_cmd;
+      feed_ctrl: port control.feed_cmd -> feeder.feed_cmd;
+      camera_ctrl: port control.camera_cmd -> camera.camera_cmd;
+
+      status_send: port control.status_out -> wifi.status_in;
+
+    properties
+      Actual_Connection_Binding => (reference(i2c_bus)) applies to
+        temp_conn, ph_conn, light_conn, water_conn,
+        heater_ctrl, light_ctrl, pump_ctrl, feed_ctrl;
+
+      Actual_Connection_Binding => (reference(wifi_bus)) applies to
+        camera_ctrl, command_conn, app_command, status_send;
+
+      Actual_Processor_Binding => (reference(cpu)) applies to
+        sensors, control;
+
+      Actual_Memory_Binding => (reference(mem)) applies to
+        cpu, sensors, control;
+  end SmartAkwariumSystem.impl;
+
+end smart_akwarium;
