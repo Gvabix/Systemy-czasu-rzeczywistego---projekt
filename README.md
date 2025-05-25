@@ -32,9 +32,13 @@ Możliwość podglądu akwarium dzięki  real-time kamery.
 - SmartAkwarium – główny pakiet zawierający wszystkie komponenty systemu inteligentnego akwarium.
 
  ### Data 
+ -TimestampData - zapis dokładnego momentu pobrania danych.
+
 - TemperatureData – dane z czujnika temperatury wody.
 
 - PHData – dane z czujnika pH wody.
+
+- PHDoseData - dane uruchomienia dozownika substancji do zmiany poziomu ph.
 
 - LightLevelData – dane dotyczące poziomu oświetlenia akwarium.
 
@@ -60,11 +64,13 @@ Możliwość podglądu akwarium dzięki  real-time kamery.
 
 - NetworkReceiver – wątek odbierający komendy z sieci.
 
-- ControlLoop – wątek przetwarzający dane i podejmujący decyzje sterujące.
+- ControlLoop – wątek przetwarzający dane i podejmujący decyzje sterujące: włączanie ogrzewania, lampy.
 
 - FeedingControl - sterowanie karmnikiem.
 
 - CameraControl - sterowanie kamerą.
+
+- PHControl - sterowanie dozownikiem.
 
 - WaterPumpControl - sterowanie poziomem wody.
 
@@ -89,6 +95,8 @@ Możliwość podglądu akwarium dzięki  real-time kamery.
 - HeaterActuator – urządzenie wykonawcze: grzałka.
 
 - LightActuator – urządzenie wykonawcze: oświetlenie.
+
+- PHActuator - dozownik substancji wpływających na ph wody.
 
 - WaterPumpActuator - urządzenie wykonawcze: pompa wodna.
 
