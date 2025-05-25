@@ -16,11 +16,15 @@ Monitorowanie oraz zmiana:
 
 - pH wody,
 
-- naświetlenia.
+- naświetlenia,
+
+- poziomu wody.
 
 Możliwość przesyłania statusu oraz alertów przez WiFi.
 
 Możliwość dokarmiania ryb.
+
+Możliwość podglądu akwarium dzięki  real-time kamery.
 
 # Planowane komponenty projektu:
  
@@ -34,6 +38,8 @@ Możliwość dokarmiania ryb.
 
 - LightLevelData – dane dotyczące poziomu oświetlenia akwarium.
 
+- WaterLevelData - dane dotyczące poziomu wody w akwarium.
+
 - CommandData – komendy przychodzące z zewnątrz (np. z aplikacji mobilnej).
 
 - SchedulerConfig – konfiguracja harmonogramu sterowania.
@@ -42,6 +48,7 @@ Możliwość dokarmiania ryb.
 
 - SensorReading – uogólniona struktura pojedynczego odczytu z czujnika.
 
+
 ### Threads
 - TempMonitor – wątek monitorujący temperaturę wody.
 
@@ -49,9 +56,21 @@ Możliwość dokarmiania ryb.
 
 - LightMonitor – wątek monitorujący poziom oświetlenia.
 
+- WaterMonitor - wątek moniturujący poziom wody.
+
 - NetworkReceiver – wątek odbierający komendy z sieci.
 
 - ControlLoop – wątek przetwarzający dane i podejmujący decyzje sterujące.
+
+- FeedingControl - sterowanie karmnikiem.
+
+- CameraControl - sterowanie kamerą.
+
+- WaterPumpControl - sterowanie poziomem wody.
+
+- AllertManager - watek zarządzający alertami i powiadomieniami.
+
+- Logger - wątek rejestrujący dane pomiarowe.
 
 ### Process
 - SensorProcess – proces zawierający wątki czujników (zbierających dane).
@@ -65,16 +84,26 @@ Możliwość dokarmiania ryb.
 
 - LightSensor – czujnik natężenia światła.
 
+- WaterLevelSensor - czujnik poziomu wody.
+
 - HeaterActuator – urządzenie wykonawcze: grzałka.
 
 - LightActuator – urządzenie wykonawcze: oświetlenie.
 
+- WaterPumpActuator - urządzenie wykonawcze: pompa wodna.
+
 - WiFiModule – moduł komunikacji bezprzewodowej Wi-Fi.
+  
+- FishFeeder - urządzenie wykonawcze: podajnik pokarmu.
+  
+- FishCamera - kamera do osobistej kontroli habitatu.
+
+- UserAppDevice - urządzenie zewnętrzne np.aplikacja mobilna.
 
 ### Bus
-- I2CBus – magistrala komunikacyjna dla czujników (np. I2C).
+- I2CBus – magistrala komunikacyjna dla czujników.
 
-- WiFiBus – logiczna magistrala do przesyłania danych przez Wi-Fi.
+- WiFiBus – logiczna magistrala do przesyłania danych przez Wi-Fi do aplikacji.
 
 ### Processor
 - RPiController – główny procesor sterujący.
