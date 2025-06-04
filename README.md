@@ -1,126 +1,82 @@
 # Systemy czasu rzeczywistego - Model Smart Akwarium w języku AADL
 
-# Autorzy:
+## Autorzy:
 - Gabriela Bułat, gbulat@student.agh.edu.pl
 - Emilia Myrta, emiliamyrta@student.agh.edu.pl
 
-# Opis projektu
+## Opis projektu
 
-Smart Akwarium to zintegrowany system sterowania akwarium, realizowany w języku AADL, którego celem jest monitorowanie i zarządzanie parametrami środowiska wodnego. System składa się z wielu komponentów podzielonych na różne typy AADL.
+**Smart Akwarium** to zintegrowany system monitorowania i sterowania parametrami wodnego akwarium, realizowany w języku AADL. System składa się z wielu komponentów podzielonych na różne typy AADL. Model systemu wykorzystuje właściwości SEI oraz analiz MIPS i przepustowości magistrali (Bus Load).
 
-# Funkcjonalności systemu:
+## Funkcjonalności systemu:
 
-Monitorowanie oraz zmiana:
+Monitorowanie oraz automatyczne sterowanie:
 
-- temperatury,
+- temperaturą wody,
 
-- pH wody,
+- poziomem pH,
 
-- naświetlenia,
+- oświetleniem,
 
-- poziomu wody.
+- poziomem wody.
 
-Możliwość przesyłania statusu oraz alertów przez WiFi.
+Podgląd w czasie rzeczywistym z kamery.
 
-Możliwość dokarmiania ryb.
+Sterowaniem karmieniem ryb.
 
-Możliwość podglądu akwarium dzięki  real-time kamery.
+Przesyłania statusu oraz alertów przez WiFi.
 
-# Planowane komponenty projektu:
+Komunikacja z użytkownikiem poprzez aplikację (WiFi).
+
+## Struktura systemu:
  
- ### Pakiet
-- SmartAkwarium – główny pakiet zawierający wszystkie komponenty systemu inteligentnego akwarium.
+ ### Główne podsystemy:
 
- ### Data 
- -TimestampData - zapis dokładnego momentu pobrania danych.
+ #### SensorSubsystem
+- Odpowiada za zbieranie danych z czujników.
+- Wykorzystuje proces SensorProcess.
+- Udostępnia dane do dalszego przetwarzania.
 
-- TemperatureData – dane z czujnika temperatury wody.
+#### ApplicationSubsystem
+- Zawiera logikę sterującą oraz urządzenia i interfejsy z aplikacją użytkownika.
+- Realizuje funkcje decyzyjne w oparciu o dane z SensorSubsystem.
 
-- PHData – dane z czujnika pH wody.
+## Główne komponenty modelu AADL:
 
-- PHDoseData - dane uruchomienia dozownika substancji do zmiany poziomu ph.
-
-- LightLevelData – dane dotyczące poziomu oświetlenia akwarium.
-
-- WaterLevelData - dane dotyczące poziomu wody w akwarium.
-
-- CommandData – komendy przychodzące z zewnątrz (np. z aplikacji mobilnej).
-
-- SchedulerConfig – konfiguracja harmonogramu sterowania.
-
-- NetworkPacket – dane do przesyłania przez sieć (np. status, alerty).
-
-- SensorReading – uogólniona struktura pojedynczego odczytu z czujnika.
-
+ ### Data:
+- `Timestamp` – znacznik czasu dla każdej próbki danych.
+- `TemperatureData`, `PHData`, `LightLevelData`, `WaterLevelData` – dane pomiarowe.
+- `PHDoseData`, `FeedingCommand`, `CameraCommand`, `CommandData` – dane sterujące.
+- `NetworkPacket`, `SensorReading`, `SchedulerConfig` – dane komunikacyjne i pomocnicze.
 
 ### Threads
-- TempMonitor – wątek monitorujący temperaturę wody.
-
-- PHMonitor – wątek monitorujący pH wody.
-
-- LightMonitor – wątek monitorujący poziom oświetlenia.
-
-- WaterMonitor - wątek moniturujący poziom wody.
-
-- NetworkReceiver – wątek odbierający komendy z sieci.
-
-- ControlLoop – wątek przetwarzający dane i podejmujący decyzje sterujące: włączanie ogrzewania, lampy.
-
-- FeedingControl - sterowanie karmnikiem.
-
-- CameraControl - sterowanie kamerą.
-
-- PHControl - sterowanie dozownikiem.
-
-- WaterPumpControl - sterowanie poziomem wody.
-
-- AllertManager - watek zarządzający alertami i powiadomieniami.
-
-- Logger - wątek rejestrujący dane pomiarowe.
-
+- Wątki monitorujące: `TempMonitor`, `PHMonitor`, `LightMonitor`, `WaterLevelMonitor`
+- Wątki sterujące: `ControlLoop`, `FeedingControl`, `CameraControl`, `WaterPumpControl`
+- Komunikacja i diagnostyka: `NetworkReceiver`, `AllertManager`, `Logger`
+  
 ### Process
-- SensorProcess – proces zawierający wątki czujników (zbierających dane).
-
-- ControlProcess – proces zawierający logikę sterowania na podstawie danych z czujników.
+- `SensorProcess` – obsługa i przetwarzanie danych z czujników.
+- `ControlProcess` – logika decyzyjna i sterowanie urządzeniami.
 
 ### Devices
-- TemperatureSensor – fizyczny czujnik temperatury.
-
-- PHSensor – czujnik poziomu pH wody.
-
-- LightSensor – czujnik natężenia światła.
-
-- WaterLevelSensor - czujnik poziomu wody.
-
-- HeaterActuator – urządzenie wykonawcze: grzałka.
-
-- LightActuator – urządzenie wykonawcze: oświetlenie.
-
-- PHActuator - dozownik substancji wpływających na ph wody.
-
-- WaterPumpActuator - urządzenie wykonawcze: pompa wodna.
-
-- WiFiModule – moduł komunikacji bezprzewodowej Wi-Fi.
-  
-- FishFeeder - urządzenie wykonawcze: podajnik pokarmu.
-  
-- FishCamera - kamera do osobistej kontroli habitatu.
-
-- UserAppDevice - urządzenie zewnętrzne np.aplikacja mobilna.
+- Czujniki: `TemperatureSensor`, `PHSensor`, `LightSensor`, `WaterLevelSensor`
+- Urządzenia wykonawcze: `HeaterActuator`, `LightActuator`, `PHActuator`, `WaterPumpActuator`, `FishFeeder`
+- Komunikacja: `WiFiModule`, `FishCamera`, `UserAppDevice`
 
 ### Bus
-- I2CBus – magistrala komunikacyjna dla czujników.
-
-- WiFiBus – logiczna magistrala do przesyłania danych przez Wi-Fi do aplikacji.
+- `I2CBus` – magistrala sprzętowa czujników.
+- `WiFiBus` – logiczna magistrala komunikacyjna z aplikacją.
 
 ### Processor
-- RPiController – główny procesor sterujący.
+- `RPiController` – procesor główny systemu.
+- `CameraProcessor` – dedykowany procesor dla kamery.
 
 ### Memory
-- MainMemory – pamięć operacyjna dla systemu.
+- `MainMemory` – pamięć główna systemu.
+- `CameraMemory` – pamięć dedykowana obsłudze kamery.
 
 ### System
-- SmartAkwariumSystem – top-level system integrujący wszystkie komponenty.
+- `SmartAkwariumSystem` – top-level system integrujący podsystemy: SensorSubsystem i ApplicationSubsystem, wraz z procesorami, pamięciami i magistralami.
 
 # Architektura systemu.
 
