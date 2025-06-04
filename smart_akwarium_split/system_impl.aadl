@@ -1,0 +1,214 @@
+package system_impl
+public
+  with processes;
+  with devices;
+  with data_types;
+  with SEI;
+
+  system SensorSubsystem
+    features
+      temperature_out: out data port data_types::TemperatureData;
+      ph_out: out data port data_types::PHData;
+      light_out: out data port data_types::LightLevelData;
+      water_out: out data port data_types::WaterLevelData;
+  flows
+      temp_data_flow: flow source temperature_out;
+      ph_data_flow: flow source ph_out;
+      light_data_flow: flow source light_out;
+      water_data_flow: flow source water_out;
+  end SensorSubsystem;
+
+  system implementation SensorSubsystem.impl
+    subcomponents
+      sensors: process processes::SensorProcess.impl {
+        SEI::MIPSBudget => 0.8 mips;
+      };
+      temp_sensor: device devices::TemperatureSensor {
+        SEI::GrossWeight => 0.1kg;
+        Dispatch_Protocol => Periodic;
+        Period => 20ms;
+      };
+      ph_sensor: device devices::PHSensor {
+        SEI::GrossWeight => 0.1kg;
+      };
+      light_sensor: device devices::LightSensor {
+        SEI::GrossWeight => 0.1kg;
+      };
+      water_sensor: device devices::WaterLevelSensor {
+        SEI::GrossWeight => 0.1kg;
+      };
+
+    connections
+      temp_conn: port temp_sensor.temp_out -> sensors.temp_in;
+      ph_conn: port ph_sensor.ph_out -> sensors.ph_in;
+      light_conn: port light_sensor.light_out -> sensors.light_in;
+      water_conn: port water_sensor.water_out -> sensors.water_in;
+
+      temp_data_out: port sensors.temperature_out -> temperature_out;
+      ph_data_out: port sensors.ph_out -> ph_out;
+      light_data_out: port sensors.light_out -> light_out;
+      water_data_out: port sensors.water_out -> water_out;
+  end SensorSubsystem.impl;
+
+  system ApplicationSubsystem
+    features
+      temperature_in: in data port data_types::TemperatureData;
+      ph_in: in data port data_types::PHData;
+      light_in: in data port data_types::LightLevelData;
+      water_in: in data port data_types::WaterLevelData;
+  flows
+      temp_data_flow: flow sink temperature_in;
+      ph_data_flow: flow sink ph_in;
+      light_data_flow: flow sink light_in;
+      water_data_flow: flow sink water_in;
+  end ApplicationSubsystem;
+
+  system implementation ApplicationSubsystem.impl
+    subcomponents
+      control: process processes::ControlProcess.impl {
+        SEI::MIPSBudget => 0.8 mips;
+      };
+      heater: device devices::HeaterActuator {
+        SEI::GrossWeight => 0.15kg;
+      };
+      light: device devices::LightActuator {
+        SEI::GrossWeight => 0.15kg;
+      };
+      ph_act: device devices::PHActuator {
+        SEI::GrossWeight => 0.15kg;
+      };
+      pump: device devices::WaterPumpActuator {
+        SEI::GrossWeight => 0.15kg;
+      };
+      feeder: device devices::FishFeeder {
+        SEI::GrossWeight => 0.2kg;
+      };
+      camera: device devices::FishCamera {
+        SEI::GrossWeight => 0.3kg;
+      };
+      wifi: device devices::WiFiModule {
+        SEI::GrossWeight => 0.1kg;
+      };
+      app: device devices::UserAppDevice {
+        SEI::GrossWeight => 0.1kg;
+      };
+
+    connections
+      heater_ctrl: port control.heater_cmd -> heater.heater_cmd;
+      light_ctrl: port control.light_cmd -> light.light_cmd;
+      pump_ctrl: port control.pump_cmd -> pump.pump_cmd;
+      feed_ctrl: port control.feed_cmd -> feeder.feed_cmd;
+      camera_ctrl: port control.camera_cmd -> camera.camera_cmd;
+      command_conn: port wifi.command_out -> control.command_in;
+      app_command: port app.app_out -> control.command_in;
+      status_send: port control.status_out -> wifi.status_in;
+
+      temp_data: port temperature_in -> control.temperature_in;
+      ph_data: port ph_in -> control.ph_in;
+      light_data: port light_in -> control.light_in;
+      water_data: port water_in -> control.water_in;
+  end ApplicationSubsystem.impl;
+
+  processor RPiController
+    features
+      i2c: requires bus access devices::I2CBus;
+      eth: requires bus access devices::WiFiBus;
+    properties
+      Scheduling_Protocol => (Round_Robin_Protocol);
+      Clock_Period => 1 ms;
+      Timing_Properties::Processor_Capacity => 1.0 MIPS;
+      SEI::MIPSCapacity => 1.2 mips;
+  end RPiController;
+
+  processor CameraProcessor
+    features
+      wifi: requires bus access devices::WiFiBus;
+    properties
+      Scheduling_Protocol => (Round_Robin_Protocol);
+      Clock_Period => 1 ms;
+      Timing_Properties::Processor_Capacity => 1.0 MIPS;
+      SEI::MIPSCapacity => 1.0 mips;
+  end CameraProcessor;
+
+  memory MainMemory
+    features
+      mem_i2c: requires bus access devices::I2CBus;
+      mem_wifi: requires bus access devices::WiFiBus;
+  end MainMemory;
+
+  memory CameraMemory
+    features
+      mem_wifi: requires bus access devices::WiFiBus;
+  end CameraMemory;
+
+  system SmartAkwariumSystem
+    features
+      temperature_out: out data port data_types::TemperatureData;
+      ph_out: out data port data_types::PHData;
+      light_out: out data port data_types::LightLevelData;
+      water_out: out data port data_types::WaterLevelData;
+
+      temperature_in: in data port data_types::TemperatureData;
+      ph_in: in data port data_types::PHData;
+      light_in: in data port data_types::LightLevelData;
+      water_in: in data port data_types::WaterLevelData;
+    flows
+	  temp_end_to_end: flow path temperature_in -> temperature_out;
+	  ph_end_to_end: flow path ph_in -> ph_out;
+	  light_end_to_end: flow path light_in -> light_out;
+	  water_end_to_end: flow path water_in -> water_out;
+    properties
+      SEI::MIPSCapacity => 2.4 mips;
+  end SmartAkwariumSystem;
+
+  system implementation SmartAkwariumSystem.impl
+    subcomponents
+      sensor_subsystem: system SensorSubsystem.impl;
+      app_subsystem: system ApplicationSubsystem.impl;
+      cpu: processor RPiController;
+      camera_cpu: processor CameraProcessor;
+      mem: memory MainMemory;
+      cam_mem: memory CameraMemory;
+      i2c_bus: bus devices::I2CBus {
+        SEI::BandWidthCapacity => 2.0 MBytesps;
+        SEI::BandWidthBudget => 200.0 KBytesps;
+      };
+      wifi_bus: bus devices::WiFiBus {
+        SEI::BandWidthCapacity => 2.0 MBytesps;
+        SEI::BandWidthBudget => 200.0 KBytesps;
+        Transmission_Time => [Fixed => 1ns .. 2ns; PerByte => 5ns .. 6ns;];
+        Period => 1 ms;
+      };
+
+    connections
+      temp_send: port sensor_subsystem.temperature_out -> temperature_out;
+      ph_send: port sensor_subsystem.ph_out -> ph_out;
+      light_send: port sensor_subsystem.light_out -> light_out;
+      water_send: port sensor_subsystem.water_out -> water_out;
+
+      temp_recv: port temperature_in -> app_subsystem.temperature_in;
+      ph_recv: port ph_in -> app_subsystem.ph_in;
+      light_recv: port light_in -> app_subsystem.light_in;
+      water_recv: port water_in -> app_subsystem.water_in;
+
+    properties
+      Actual_Connection_Binding => (reference(i2c_bus)) applies to
+        sensor_subsystem.temp_conn, sensor_subsystem.ph_conn, sensor_subsystem.light_conn, sensor_subsystem.water_conn,
+        app_subsystem.heater_ctrl, app_subsystem.light_ctrl, app_subsystem.pump_ctrl, app_subsystem.feed_ctrl;
+
+      Actual_Connection_Binding => (reference(wifi_bus)) applies to
+        app_subsystem.camera_ctrl, app_subsystem.command_conn, app_subsystem.app_command, app_subsystem.status_send;
+
+      Actual_Processor_Binding => (reference(cpu)) applies to
+        sensor_subsystem, app_subsystem;
+
+      Actual_Processor_Binding => (reference(camera_cpu)) applies to
+        app_subsystem.camera;
+
+      Actual_Memory_Binding => (reference(mem)) applies to
+        cpu, sensor_subsystem, app_subsystem;
+
+      Actual_Memory_Binding => (reference(cam_mem)) applies to
+        camera_cpu, app_subsystem.camera;
+  end SmartAkwariumSystem.impl;
+end system_impl;

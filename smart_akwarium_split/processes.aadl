@@ -1,0 +1,78 @@
+package processes
+public
+  with data_types;
+  with threads;
+  with Base_Types;
+
+  process SensorProcess
+    features
+      temp_in: in data port data_types::TemperatureData;
+      ph_in: in data port data_types::PHData;
+      light_in: in data port data_types::LightLevelData;
+      water_in: in data port data_types::WaterLevelData;
+
+      temperature_out: out data port data_types::TemperatureData;
+      ph_out: out data port data_types::PHData;
+      light_out: out data port data_types::LightLevelData;
+      water_out: out data port data_types::WaterLevelData;
+  end SensorProcess;
+
+  process implementation SensorProcess.impl
+    subcomponents
+      temp_monitor: thread threads::TempMonitor.impl;
+      ph_monitor: thread threads::PHMonitor.impl;
+      light_monitor: thread threads::LightMonitor.impl;
+      water_monitor: thread threads::WaterLevelMonitor.impl;
+    connections
+      temp_conn: port temp_in -> temp_monitor.temp_in;
+      ph_conn: port ph_in -> ph_monitor.ph_in;
+      light_conn: port light_in -> light_monitor.light_in;
+      water_conn: port water_in -> water_monitor.water_in;
+
+      temp_data_out: port temp_monitor.temp_out -> temperature_out;
+      ph_data_out: port ph_monitor.ph_out -> ph_out;
+      light_data_out: port light_monitor.light_out -> light_out;
+      water_data_out: port water_monitor.water_out -> water_out;
+  end SensorProcess.impl;
+
+  process ControlProcess
+    features
+      command_in: in data port data_types::CommandData;
+      heater_cmd: out data port Base_Types::Boolean;
+      light_cmd: out data port Base_Types::Boolean;
+      pump_cmd: out data port Base_Types::Boolean;
+      feed_cmd: out data port data_types::FeedingCommand;
+      camera_cmd: out data port data_types::CameraCommand;
+
+      temperature_in: in data port data_types::TemperatureData;
+      ph_in: in data port data_types::PHData;
+      light_in: in data port data_types::LightLevelData;
+      water_in: in data port data_types::WaterLevelData;
+
+      status_out: out data port data_types::NetworkPacket;
+  end ControlProcess;
+
+  process implementation ControlProcess.impl
+    subcomponents
+      control_loop: thread threads::ControlLoop.impl;
+      receiver: thread threads::NetworkReceiver.impl;
+      feeder: thread threads::FeedingControl.impl;
+      cam_ctrl: thread threads::CameraControl.impl;
+      pump_ctrl: thread threads::WaterPumpControl.impl;
+      alerts: thread threads::AllertManager;
+      logger: thread threads::Logger;
+    connections
+      cmd_conn: port command_in -> receiver.command_in;
+      heater_conn: port control_loop.heater_out -> heater_cmd;
+      light_conn: port control_loop.light_out -> light_cmd;
+
+      temp_recv: port temperature_in -> control_loop.temp_in;
+      ph_recv: port ph_in -> control_loop.ph_in;
+      light_recv: port light_in -> control_loop.light_in;
+      status_link: port control_loop.status_out -> status_out;
+
+      pump_cmd_conn: port pump_ctrl.pump_out -> pump_cmd;
+      feed_cmd_conn: port feeder.feed_out -> feed_cmd;
+      camera_cmd_conn: port cam_ctrl.camera_out -> camera_cmd;
+  end ControlProcess.impl;
+end processes;

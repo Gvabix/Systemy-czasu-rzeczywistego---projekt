@@ -1,0 +1,1444 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="aa47b23d-f023-4d85-9452-791578841586" manual="true">
+    <element uuid="f67e59fd-7a05-4e0e-a8e2-45188164fe94" manual="true">
+      <element uuid="a591757c-1b32-4036-9ebe-d84980534706" manual="true">
+        <element uuid="80d6cc96-562e-437a-b7c1-8d05e61f66ad" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>app_out</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <element uuid="bdb9c8b9-e70a-4fa8-b792-d461b9ce0433" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>bus_access</seg>
+          </bo>
+          <position y="110.0"/>
+        </element>
+        <element uuid="b16c815e-c22b-42d2-84e0-d64e44f4d4e9" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>in_app</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>app</seg>
+        </bo>
+        <position/>
+        <size width="239.06640625" height="160.0"/>
+      </element>
+      <element uuid="3fdff4e7-839f-4fa6-bd46-3fb365951858" manual="true">
+        <element uuid="0a80f5c9-3eb1-4ab5-a7d3-802bd142e81d" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>bus_access</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <element uuid="6c9c2e66-8eab-40ce-a48c-371a442ac3b4" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>camera_cmd</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>camera</seg>
+        </bo>
+        <position/>
+        <size width="274.58724212646484" height="110.0"/>
+      </element>
+      <element uuid="2b443737-d8dc-44e6-8ada-d4e2306cbe08" manual="true">
+        <element uuid="4d756bc2-9960-41b9-8ce1-6df029f3c0ee" manual="true">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>alerts</seg>
+          </bo>
+          <position x="113.68099212646484" y="26.0"/>
+          <size width="84.60416793823242" height="35.0"/>
+        </element>
+        <element uuid="bd7d90ee-f378-446c-85ee-f79adbc46aa5" manual="true">
+          <element uuid="85d57dff-bbf8-4834-9a1f-386d46b45433" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>camera_out</seg>
+            </bo>
+            <position y="10.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>cam_ctrl</seg>
+          </bo>
+          <position x="386.8294143676758" y="106.0"/>
+          <size width="267.19791412353516" height="60.0"/>
+        </element>
+        <element uuid="0be4223b-b930-41c6-a842-395aa260a88f" manual="true">
+          <element uuid="b38060d0-18c8-4984-a929-8db353af45f1" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>heater_out</seg>
+            </bo>
+            <position y="10.0"/>
+          </element>
+          <element uuid="53e1ac21-a813-4337-b87d-6ac66f1daa27" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>light_in</seg>
+            </bo>
+            <position y="60.0"/>
+          </element>
+          <element uuid="8268bab7-cb11-4ba8-9d30-0dd69c15d555" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>light_out</seg>
+            </bo>
+            <position y="260.0"/>
+          </element>
+          <element uuid="d6f925b1-08fe-4d73-b4c6-de201b33d9b8" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>ph_in</seg>
+            </bo>
+            <position y="160.0"/>
+          </element>
+          <element uuid="aa27b1e6-ef66-4ba6-a9e5-664a66ccc9b6" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>status_out</seg>
+            </bo>
+            <position y="210.0"/>
+          </element>
+          <element uuid="56fcf8f7-8c5f-44f5-8e56-5878ea696f52" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>temp_in</seg>
+            </bo>
+            <position y="110.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>control_loop</seg>
+          </bo>
+          <position x="409.7721176147461" y="186.0"/>
+          <size width="276.15624237060547" height="310.0"/>
+        </element>
+        <element uuid="02e70716-06c5-4291-a507-a4e7b130a720" manual="true">
+          <element uuid="f687937e-2f67-400b-92ed-a479676bbb42" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>feed_out</seg>
+            </bo>
+            <position y="10.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>feeder</seg>
+          </bo>
+          <position x="327.34896087646484" y="26.0"/>
+          <size width="217.60805892944336" height="60.0"/>
+        </element>
+        <element uuid="89897f63-9dc0-49f3-b1fe-d273c38bf4b3" manual="true">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>logger</seg>
+          </bo>
+          <position x="218.28516387939453" y="26.0"/>
+          <size width="89.06380081176758" height="35.0"/>
+        </element>
+        <element uuid="e315bae3-0eeb-407c-b061-6b1908231c23" manual="true">
+          <element uuid="0dfb7087-43f0-4e01-8d31-13a7b09c33f5" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>pump_out</seg>
+            </bo>
+            <position y="10.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>pump_ctrl</seg>
+          </bo>
+          <position x="113.68099212646484" y="106.0"/>
+          <size width="253.14842224121094" height="60.0"/>
+        </element>
+        <element uuid="311b44f1-ed1e-4026-b67b-70bfe207c781" manual="true">
+          <element uuid="6b887afa-870f-43b2-a777-46d0904765fd" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>command_in</seg>
+            </bo>
+            <position y="10.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>receiver</seg>
+          </bo>
+          <position x="113.68099212646484" y="186.0"/>
+          <size width="276.0911407470703" height="60.0"/>
+        </element>
+        <element uuid="adedbb98-bf1a-4334-8fe2-e8f2622ae70e" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>camera_cmd</seg>
+          </bo>
+          <position y="310.0"/>
+        </element>
+        <element uuid="961ea5cd-19ed-4b9a-b1ee-c0b0062a3b05" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>command_in</seg>
+          </bo>
+          <position y="260.0"/>
+        </element>
+        <element uuid="4b260653-77cc-441f-9433-dad9bf41f5db" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>feed_cmd</seg>
+          </bo>
+          <position y="460.0"/>
+        </element>
+        <element uuid="f4e0b61a-b629-4563-b9fd-215ea8bddb9e" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>heater_cmd</seg>
+          </bo>
+          <position y="410.0"/>
+        </element>
+        <element uuid="01cb1b7c-fde3-4915-98c3-2935179f4960" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>light_cmd</seg>
+          </bo>
+          <position y="360.0"/>
+        </element>
+        <element uuid="2d9ecfd7-78cd-43f3-b008-986bc4b11174" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>light_in</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <element uuid="8d952b3e-3a63-4da2-ac19-de73b5c773e4" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>ph_in</seg>
+          </bo>
+          <position y="210.0"/>
+        </element>
+        <element uuid="a55673b4-f38d-4f33-a141-4470859483fd" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>pump_cmd</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <element uuid="b5109900-c8de-4e09-bc61-ad621c10e2d0" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>status_out</seg>
+          </bo>
+          <position y="510.0"/>
+        </element>
+        <element uuid="58d294fe-5fb6-4b5e-bb4c-82487fdf7f22" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>temperature_in</seg>
+          </bo>
+          <position y="160.0"/>
+        </element>
+        <element uuid="f8a0f6dc-f0cc-4f23-a5c2-78e1e1ba8817" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>water_in</seg>
+          </bo>
+          <position y="110.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>control</seg>
+        </bo>
+        <position/>
+        <size width="685.9283599853516" height="550.0"/>
+      </element>
+      <element uuid="94d00787-72f0-4032-9dad-09206f685d64" manual="true">
+        <element uuid="bb6de388-58dc-4933-8230-53ae5a3b19e3" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>bus_access</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <element uuid="3a41c983-f455-4c20-aca7-d7622573dd9d" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>feed_cmd</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>feeder</seg>
+        </bo>
+        <position/>
+        <size width="254.62630081176758" height="110.0"/>
+      </element>
+      <element uuid="f788f7a0-d3f3-4b87-95a0-c1f8047c0084" manual="true">
+        <element uuid="987504bd-c1b9-4d7c-bf79-b780baf1eefe" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>bus_access</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <element uuid="7370b961-1341-4dd0-8c4f-c01ce13f3f62" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>heater_cmd</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>heater</seg>
+        </bo>
+        <position/>
+        <size width="254.62630462646484" height="110.0"/>
+      </element>
+      <element uuid="677f6423-84e6-43d3-8db5-4bfbb19f3d5d" manual="true">
+        <element uuid="f626040d-9c2d-4ebf-a30a-95ff9d5ea806" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>bus_access</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <element uuid="38105806-d4ea-406f-a28f-92084963e0c9" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>light_cmd</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>light</seg>
+        </bo>
+        <position/>
+        <size width="241.2799472808838" height="110.0"/>
+      </element>
+      <element uuid="873713a7-c32f-4f78-b9ca-0724ddc74f27" manual="true">
+        <element uuid="bb1966bd-9d1d-422b-a74b-f2b2edab7680" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>bus_access</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <element uuid="8b4c38d7-e747-4129-8c1a-4ee708806282" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>ph_cmd</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>ph_act</seg>
+        </bo>
+        <position/>
+        <size width="256.8528633117676" height="110.0"/>
+      </element>
+      <element uuid="de22e8f8-8308-41c7-8c94-2d3c0a918a6f" manual="true">
+        <element uuid="4e617e51-17b7-4abf-b60c-ba628511ca17" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>bus_access</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <element uuid="a2a9525b-14fd-4f74-abbe-e5cf40fffbb3" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>pump_cmd</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>pump</seg>
+        </bo>
+        <position/>
+        <size width="250.17317581176758" height="110.0"/>
+      </element>
+      <element uuid="20b53110-344c-4979-ab6f-5eb706f0f4ef" manual="true">
+        <element uuid="2c92e391-8118-4fc2-bc5c-482c546f31cc" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>bus_access</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <element uuid="6e91c587-ca50-4fef-bcd4-1d7c555261c7" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>command_out</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <element uuid="ba762159-fa9c-46d2-8224-2609df491a36" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>status_in</seg>
+          </bo>
+          <position y="110.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>wifi</seg>
+        </bo>
+        <position/>
+        <size width="264.2421875" height="160.0"/>
+      </element>
+      <element uuid="b8167ceb-53ab-4a6a-be16-c406bbf00dc7" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>app_command : SmartAkwariumSystem_impl_Instance.app_subsystem.app.app_out -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.command_in</seg>
+        </bo>
+      </element>
+      <element uuid="b9a4e408-93ae-42bd-ad9a-6c1afe7b74eb" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>camera_cmd_conn : SmartAkwariumSystem_impl_Instance.app_subsystem.control.cam_ctrl.camera_out -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.camera_cmd</seg>
+        </bo>
+      </element>
+      <element uuid="193af76b-0f7f-413c-b414-b64a46db24fb" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>camera_ctrl : SmartAkwariumSystem_impl_Instance.app_subsystem.control.camera_cmd -> SmartAkwariumSystem_impl_Instance.app_subsystem.camera.camera_cmd</seg>
+        </bo>
+      </element>
+      <element uuid="4bbe16fc-2c7b-4696-b03d-d84edc7f2c2e" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>cmd_conn : SmartAkwariumSystem_impl_Instance.app_subsystem.control.command_in -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.receiver.command_in</seg>
+        </bo>
+      </element>
+      <element uuid="8217135b-71ae-4a75-bc5a-659ab16e091a" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>command_conn : SmartAkwariumSystem_impl_Instance.app_subsystem.wifi.command_out -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.command_in</seg>
+        </bo>
+      </element>
+      <element uuid="4cf76841-67e7-4420-b002-42959c4b97b3" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>feed_cmd_conn : SmartAkwariumSystem_impl_Instance.app_subsystem.control.feeder.feed_out -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.feed_cmd</seg>
+        </bo>
+      </element>
+      <element uuid="f103cc73-ba72-4c4b-a96c-6847313c5c95" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>feed_ctrl : SmartAkwariumSystem_impl_Instance.app_subsystem.control.feed_cmd -> SmartAkwariumSystem_impl_Instance.app_subsystem.feeder.feed_cmd</seg>
+        </bo>
+      </element>
+      <element uuid="83db5f93-4932-411d-b23b-352756b8ee5a" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>heater_conn : SmartAkwariumSystem_impl_Instance.app_subsystem.control.control_loop.heater_out -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.heater_cmd</seg>
+        </bo>
+      </element>
+      <element uuid="3b586a1e-6f31-4c81-9cf3-af956ce384d2" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>heater_ctrl : SmartAkwariumSystem_impl_Instance.app_subsystem.control.heater_cmd -> SmartAkwariumSystem_impl_Instance.app_subsystem.heater.heater_cmd</seg>
+        </bo>
+      </element>
+      <element uuid="7cbb56ff-065a-491f-a16b-b4141ee3511c" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>light_conn : SmartAkwariumSystem_impl_Instance.app_subsystem.control.control_loop.light_out -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.light_cmd</seg>
+        </bo>
+      </element>
+      <element uuid="6c4b6722-e8e9-49cf-b32f-e1e4bc6a8d5e" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>light_ctrl : SmartAkwariumSystem_impl_Instance.app_subsystem.control.light_cmd -> SmartAkwariumSystem_impl_Instance.app_subsystem.light.light_cmd</seg>
+        </bo>
+      </element>
+      <element uuid="be547901-797c-468c-aee2-d41cda06ed55" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>pump_cmd_conn : SmartAkwariumSystem_impl_Instance.app_subsystem.control.pump_ctrl.pump_out -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.pump_cmd</seg>
+        </bo>
+      </element>
+      <element uuid="11cb9a3b-f6f9-48c5-ac63-fd542a1c9031" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>pump_ctrl : SmartAkwariumSystem_impl_Instance.app_subsystem.control.pump_cmd -> SmartAkwariumSystem_impl_Instance.app_subsystem.pump.pump_cmd</seg>
+        </bo>
+      </element>
+      <element uuid="0d941878-43b5-4ec5-bf0f-cdbcd0ceaa8e" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>status_link : SmartAkwariumSystem_impl_Instance.app_subsystem.control.control_loop.status_out -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.status_out</seg>
+        </bo>
+      </element>
+      <element uuid="45221de7-0b99-4a2a-960c-786f87139097" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>status_send : SmartAkwariumSystem_impl_Instance.app_subsystem.control.status_out -> SmartAkwariumSystem_impl_Instance.app_subsystem.wifi.status_in</seg>
+        </bo>
+      </element>
+      <element uuid="a14df74b-1391-4e16-aacc-3b8ff489af81" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>light_in</seg>
+        </bo>
+        <position y="38.0"/>
+      </element>
+      <element uuid="593ef981-27e5-46c5-8e3c-3dd95eb36887" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>ph_in</seg>
+        </bo>
+        <position y="218.0"/>
+      </element>
+      <element uuid="8374e769-d6af-492f-a2cd-b1b19b231cbc" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>temperature_in</seg>
+        </bo>
+        <position y="158.0"/>
+      </element>
+      <element uuid="61e0cb17-6d17-4249-9e79-1a03916ba475" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>water_in</seg>
+        </bo>
+        <position y="98.0"/>
+      </element>
+      <element uuid="3dad020a-0a4d-420b-a112-b0ebde240417" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>flow_specification_instance</seg>
+          <seg>light_data_flow</seg>
+        </bo>
+        <position x="212.18619537353516" y="70.0"/>
+      </element>
+      <element uuid="3133f28b-6221-49db-a1d0-d82781bab73e" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>flow_specification_instance</seg>
+          <seg>ph_data_flow</seg>
+        </bo>
+        <position x="192.9283905029297" y="250.0"/>
+      </element>
+      <element uuid="f07f6de3-1199-4ddd-833a-5fbcda6baad2" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>flow_specification_instance</seg>
+          <seg>temp_data_flow</seg>
+        </bo>
+        <position x="307.04297637939453" y="190.0"/>
+      </element>
+      <element uuid="84d6015d-2ab8-432e-9496-fbde50cb6980" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>flow_specification_instance</seg>
+          <seg>water_data_flow</seg>
+        </bo>
+        <position x="228.47525787353516" y="130.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>app_subsystem</seg>
+      </bo>
+      <position x="1340.0" y="190.0"/>
+      <size width="799.6093597412141" height="560.0"/>
+    </element>
+    <element uuid="12b61dff-6ca5-4b1b-8d21-2f6ff2f7b762" manual="true">
+      <element uuid="49463526-c279-423b-b401-025b91d445d1" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>mem_wifi</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>cam_mem</seg>
+      </bo>
+      <position x="330.0" y="990.0"/>
+      <size width="250.83722305297852" height="60.0"/>
+    </element>
+    <element uuid="59bf908b-2017-4c5e-9e06-86e263afc918" manual="true">
+      <element uuid="ea85a713-b2aa-477f-b327-92265c2946d6" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>wifi</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>camera_cpu</seg>
+      </bo>
+      <position x="860.0" y="1030.0"/>
+      <size width="187.88802337646484" height="60.0"/>
+    </element>
+    <element uuid="d0604047-eb91-41d4-bb3c-90e8b590a0b0" manual="true">
+      <element uuid="ffd471b6-bb3b-4899-9df6-af8f9ec9b4d2" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>eth</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <element uuid="60622d95-56c2-4cd0-9cdf-a64b582533a1" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>i2c</seg>
+        </bo>
+        <position y="60.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>cpu</seg>
+      </bo>
+      <position x="1080.0" y="1010.0"/>
+      <size width="134.56770706176758" height="110.0"/>
+    </element>
+    <element uuid="a40e5793-8532-47e0-b393-11b14bc8d86a" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>i2c_bus</seg>
+      </bo>
+      <position x="600.0" y="1010.0"/>
+      <size width="97.95702743530273" height="35.0"/>
+    </element>
+    <element uuid="1b7e15b3-9c5f-4e88-b9f8-ec669804e7d3" manual="true">
+      <element uuid="9ffed389-0d63-4455-9b6e-920ee0b48b7d" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>mem_i2c</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <element uuid="ed3dac23-8fe7-4f2e-b1bb-abc79a5ece2c" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>mem_wifi</seg>
+        </bo>
+        <position y="60.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>mem</seg>
+      </bo>
+      <position x="80.0" y="940.0"/>
+      <size width="218.23306274414062" height="110.0"/>
+    </element>
+    <element uuid="67998927-66c5-4519-9453-6d7e17836c52" manual="true">
+      <element uuid="96eabf29-06ee-4af9-b299-87c9bea99133" manual="true">
+        <element uuid="3ec6ea29-362a-4257-9d87-a44ff4efb06f" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>bus_access</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <element uuid="38686871-287f-429c-865a-29b4ebe5564f" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>light_out</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>light_sensor</seg>
+        </bo>
+        <position/>
+        <size width="288.71484375" height="110.0"/>
+      </element>
+      <element uuid="22dd98c0-e520-446e-a7be-f417fd6dce87" manual="true">
+        <element uuid="97c57d4f-de31-48b6-b08e-e1cadc604391" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>bus_access</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <element uuid="a83dae44-a682-4d6f-a488-167f0f3a44ff" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>ph_out</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>ph_sensor</seg>
+        </bo>
+        <position/>
+        <size width="279.0859375" height="110.0"/>
+      </element>
+      <element uuid="1b209b5b-3576-41f1-a34b-6ea0793e6037" manual="true">
+        <element uuid="71b46cf2-d534-43b4-848f-7c5fea49acf3" manual="true">
+          <element uuid="576f25c6-61fd-473c-990f-47092dc52132" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>light_in</seg>
+            </bo>
+            <position y="60.0"/>
+          </element>
+          <element uuid="024a3bf7-cc95-4ca8-a83e-78c67c337061" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>light_out</seg>
+            </bo>
+            <position y="10.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>light_monitor</seg>
+          </bo>
+          <position x="366.1067657470703" y="26.0"/>
+          <size width="253.15493774414062" height="110.0"/>
+        </element>
+        <element uuid="af738b6d-01f8-4d08-b534-a6c68d8d016e" manual="true">
+          <element uuid="ecbfb05d-b47d-4e77-981d-a28aa2614338" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>ph_in</seg>
+            </bo>
+            <position y="60.0"/>
+          </element>
+          <element uuid="93c42ac0-ab03-4b00-aa17-cf7decb2541a" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>ph_out</seg>
+            </bo>
+            <position y="10.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>ph_monitor</seg>
+          </bo>
+          <position x="121.83854675292969" y="26.0"/>
+          <size width="224.2682113647461" height="110.0"/>
+        </element>
+        <element uuid="8d951f60-5d3f-49a0-922f-098c558bec4f" manual="true">
+          <element uuid="1682ec87-ac66-4217-9596-b496cf9aa507" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>temp_in</seg>
+            </bo>
+            <position y="60.0"/>
+          </element>
+          <element uuid="e06a8d0c-8c25-4fb8-8a19-8fa8a6c09158" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>temp_out</seg>
+            </bo>
+            <position y="10.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>temp_monitor</seg>
+          </bo>
+          <position x="121.83854675292969" y="156.0"/>
+          <size width="268.7018051147461" height="110.0"/>
+        </element>
+        <element uuid="2b00590f-4816-45fc-8b45-037c77d93112" manual="true">
+          <element uuid="c5cf6a13-44b7-4dc9-a10c-c5422dfb58ed" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>water_in</seg>
+            </bo>
+            <position y="60.0"/>
+          </element>
+          <element uuid="99574977-a4d7-487e-ba9f-fa119264463b" manual="true" dockArea="left">
+            <bo>
+              <seg>org.osate.ge.diagrams.instance</seg>
+              <seg>feature_instance</seg>
+              <seg>water_out</seg>
+            </bo>
+            <position y="10.0"/>
+          </element>
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>component_instance</seg>
+            <seg>water_monitor</seg>
+          </bo>
+          <position x="121.83854675292969" y="286.0"/>
+          <size width="277.58853912353516" height="110.0"/>
+        </element>
+        <element uuid="07283544-f952-49cd-bf4b-2bb479e1627e" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>light_in</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <element uuid="176bf77c-de4c-4ad6-8d28-a4694f17d7ed" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>light_out</seg>
+          </bo>
+          <position y="360.0"/>
+        </element>
+        <element uuid="6ef80425-b5f9-4353-8cba-5b1376a4fe48" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>ph_in</seg>
+          </bo>
+          <position y="210.0"/>
+        </element>
+        <element uuid="32563b9e-6a63-445f-a0d6-4153e4831115" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>ph_out</seg>
+          </bo>
+          <position y="310.0"/>
+        </element>
+        <element uuid="e836b0c1-b544-4a59-a59a-ed3858f17049" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>temp_in</seg>
+          </bo>
+          <position y="160.0"/>
+        </element>
+        <element uuid="2ed0398a-0cbe-47b0-8499-23a82bc22469" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>temperature_out</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <element uuid="12b8d93a-0f4d-483d-b0ff-a44fbf61c9ad" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>water_in</seg>
+          </bo>
+          <position y="110.0"/>
+        </element>
+        <element uuid="581143e2-a9e7-4e18-8052-dfa50c0f3f9c" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>water_out</seg>
+          </bo>
+          <position y="260.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>sensors</seg>
+        </bo>
+        <position/>
+        <size width="642.1002502441406" height="400.0"/>
+      </element>
+      <element uuid="9aadacb1-1040-405d-b4ab-49e9d21a174a" manual="true">
+        <element uuid="003ad589-362d-498b-a18c-ec13919d4e5c" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>bus_access</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <element uuid="2b84077a-63fd-4e3e-afdc-dc6d5afe3ce9" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>temp_out</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>temp_sensor</seg>
+        </bo>
+        <position/>
+        <size width="293.89713287353516" height="110.0"/>
+      </element>
+      <element uuid="20ef600f-7d90-48b9-a6cd-de3f4a2e1aa2" manual="true">
+        <element uuid="880eb635-8eaf-4152-bc41-334b0dfbd133" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>bus_access</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <element uuid="0439493b-771f-472e-91df-1bb71936c22f" manual="true" dockArea="left">
+          <bo>
+            <seg>org.osate.ge.diagrams.instance</seg>
+            <seg>feature_instance</seg>
+            <seg>water_out</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>component_instance</seg>
+          <seg>water_sensor</seg>
+        </bo>
+        <position/>
+        <size width="296.859375" height="110.0"/>
+      </element>
+      <element uuid="03d852e6-ccea-4ed9-b270-78ce2a15c413" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>light_conn : SmartAkwariumSystem_impl_Instance.sensor_subsystem.light_sensor.light_out -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.light_in</seg>
+        </bo>
+      </element>
+      <element uuid="d4db1c8a-a1c0-4ce3-b70d-09e4666605e4" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>light_conn : SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.light_in -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.light_monitor.light_in</seg>
+        </bo>
+      </element>
+      <element uuid="b17fc9f1-7d4c-4ce7-9207-3a72e2b3b614" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>ph_conn : SmartAkwariumSystem_impl_Instance.sensor_subsystem.ph_sensor.ph_out -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.ph_in</seg>
+        </bo>
+      </element>
+      <element uuid="981953be-fcb8-4c4c-8d1e-c1ca9bd3b8cf" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>ph_conn : SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.ph_in -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.ph_monitor.ph_in</seg>
+        </bo>
+      </element>
+      <element uuid="96b181ab-e71f-4668-a11b-21fe06e3586a" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>temp_conn : SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.temp_in -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.temp_monitor.temp_in</seg>
+        </bo>
+      </element>
+      <element uuid="58b3de89-1254-4b6d-8771-e62ab3159e22" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>temp_conn : SmartAkwariumSystem_impl_Instance.sensor_subsystem.temp_sensor.temp_out -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.temp_in</seg>
+        </bo>
+      </element>
+      <element uuid="d5fb56c0-fc01-4c93-8c8d-39b91600c0e4" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>water_conn : SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.water_in -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.water_monitor.water_in</seg>
+        </bo>
+      </element>
+      <element uuid="46fdae4b-cb6b-48dd-8c4b-cb94133eae3c" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>connection_reference</seg>
+          <seg>water_conn : SmartAkwariumSystem_impl_Instance.sensor_subsystem.water_sensor.water_out -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.water_in</seg>
+        </bo>
+      </element>
+      <element uuid="024db2f9-5c43-40ba-9482-bbe5c6333d8a" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>light_out</seg>
+        </bo>
+        <position x="678.6900978088379" y="158.0"/>
+      </element>
+      <element uuid="8a695ccc-56e8-4ac4-847d-6c4ee5a901d1" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>ph_out</seg>
+        </bo>
+        <position x="688.3190040588379" y="98.0"/>
+      </element>
+      <element uuid="774b6989-87d9-481f-9c9d-7abeb09c6327" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>temperature_out</seg>
+        </bo>
+        <position x="631.2617034912109" y="218.0"/>
+      </element>
+      <element uuid="ca52c8fc-0926-4885-be7f-bf2012f6afe2" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>water_out</seg>
+        </bo>
+        <position x="670.5455665588379" y="38.0"/>
+      </element>
+      <element uuid="4644802e-1867-4268-a565-2dc12fc00700" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>flow_specification_instance</seg>
+          <seg>light_data_flow</seg>
+        </bo>
+        <position x="121.83854675292969" y="190.0"/>
+      </element>
+      <element uuid="207edeeb-c81f-4d04-9ccd-3144f312cbdb" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>flow_specification_instance</seg>
+          <seg>ph_data_flow</seg>
+        </bo>
+        <position x="121.83854675292969" y="130.0"/>
+      </element>
+      <element uuid="de2ca57f-17d6-42c3-9a5b-8a5426a3e549" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>flow_specification_instance</seg>
+          <seg>temp_data_flow</seg>
+        </bo>
+        <position x="121.83854675292969" y="250.0"/>
+      </element>
+      <element uuid="5e417624-b68e-4bb7-8e31-dd1a39256caa" manual="true">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>flow_specification_instance</seg>
+          <seg>water_data_flow</seg>
+        </bo>
+        <position x="121.83854675292969" y="70.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>sensor_subsystem</seg>
+      </bo>
+      <position x="200.0" y="170.0"/>
+      <size width="741.1002502441406" height="410.0"/>
+    </element>
+    <element uuid="20616142-5dc8-40da-94d3-3e4f7f54ce98" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>wifi_bus</seg>
+      </bo>
+      <position x="720.0" y="1020.0"/>
+      <size width="100.17057037353516" height="35.0"/>
+    </element>
+    <element uuid="82bdd75c-de8b-4ad2-b58a-5639f5eb7e03" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>light_data : SmartAkwariumSystem_impl_Instance.app_subsystem.light_in -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.light_in</seg>
+      </bo>
+    </element>
+    <element uuid="17fe2f7c-7711-4184-8ac7-497598da2268" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>light_data_out : SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.light_monitor.light_out -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.light_out</seg>
+      </bo>
+    </element>
+    <element uuid="4e521b62-d711-4b53-91d6-ab2a6b3fb258" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>light_data_out : SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.light_out -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.light_out</seg>
+      </bo>
+    </element>
+    <element uuid="7e631a58-0e32-4c36-bb1c-0715cad22be6" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>light_recv : SmartAkwariumSystem_impl_Instance.app_subsystem.control.light_in -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.control_loop.light_in</seg>
+      </bo>
+    </element>
+    <element uuid="d2a2708c-2832-4da8-8c47-674d934ed25c" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>light_recv : SmartAkwariumSystem_impl_Instance.light_in -> SmartAkwariumSystem_impl_Instance.app_subsystem.light_in</seg>
+      </bo>
+      <bendpoints>
+        <point x="575.2005004882812" y="60.0"/>
+        <point x="575.2005004882812" y="431.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="18abdc90-43f5-4e04-9d5d-6a2d6b7445a5" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>light_send : SmartAkwariumSystem_impl_Instance.sensor_subsystem.light_out -> SmartAkwariumSystem_impl_Instance.light_out</seg>
+      </bo>
+      <bendpoints>
+        <point x="1025.924560546875" y="261.0"/>
+        <point x="1025.924560546875" y="60.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="be2d3f94-12e0-4e58-8d11-8ae831a56250" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>ph_data : SmartAkwariumSystem_impl_Instance.app_subsystem.ph_in -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.ph_in</seg>
+      </bo>
+    </element>
+    <element uuid="3b7fe7c3-3c70-480c-bed6-539626f05f1c" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>ph_data_out : SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.ph_monitor.ph_out -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.ph_out</seg>
+      </bo>
+    </element>
+    <element uuid="358a61c7-41bd-4280-a440-4e38af191ce6" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>ph_data_out : SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.ph_out -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.ph_out</seg>
+      </bo>
+    </element>
+    <element uuid="e38d3b7c-73c5-4839-800f-b5c399eb1f79" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>ph_recv : SmartAkwariumSystem_impl_Instance.app_subsystem.control.ph_in -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.control_loop.ph_in</seg>
+      </bo>
+    </element>
+    <element uuid="9c3332ae-e9fa-4646-8c16-a44fec6fc7f6" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>ph_recv : SmartAkwariumSystem_impl_Instance.ph_in -> SmartAkwariumSystem_impl_Instance.app_subsystem.ph_in</seg>
+      </bo>
+      <bendpoints>
+        <point x="565.2005004882812" y="652.0"/>
+        <point x="565.2005004882812" y="611.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="3aaacfef-9add-41fb-bdde-3dde67ece3c2" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>ph_send : SmartAkwariumSystem_impl_Instance.sensor_subsystem.ph_out -> SmartAkwariumSystem_impl_Instance.ph_out</seg>
+      </bo>
+    </element>
+    <element uuid="038b2f7c-fa2e-42fc-8f22-287c2a797c23" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>temp_data : SmartAkwariumSystem_impl_Instance.app_subsystem.temperature_in -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.temperature_in</seg>
+      </bo>
+    </element>
+    <element uuid="75a065de-2908-49f5-8feb-e8d0b1e531e8" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>temp_data_out : SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.temp_monitor.temp_out -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.temperature_out</seg>
+      </bo>
+    </element>
+    <element uuid="12c09b1e-cadb-48b1-a4b3-833a215f74a5" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>temp_data_out : SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.temperature_out -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.temperature_out</seg>
+      </bo>
+    </element>
+    <element uuid="30d1d07c-33b0-4981-9f29-27079507729d" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>temp_recv : SmartAkwariumSystem_impl_Instance.app_subsystem.control.temperature_in -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.control_loop.temp_in</seg>
+      </bo>
+    </element>
+    <element uuid="2cb9455e-1d6a-430a-949f-ecb8cb0110b4" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>temp_recv : SmartAkwariumSystem_impl_Instance.temperature_in -> SmartAkwariumSystem_impl_Instance.app_subsystem.temperature_in</seg>
+      </bo>
+    </element>
+    <element uuid="9a6a748b-cfdb-442c-94fa-919a0197be96" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>temp_send : SmartAkwariumSystem_impl_Instance.sensor_subsystem.temperature_out -> SmartAkwariumSystem_impl_Instance.temperature_out</seg>
+      </bo>
+      <bendpoints>
+        <point x="1015.9244995117188" y="321.0"/>
+        <point x="1015.9244995117188" y="641.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="1746fee1-cbd2-499b-8169-edb4b53ef4e1" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>water_data : SmartAkwariumSystem_impl_Instance.app_subsystem.water_in -> SmartAkwariumSystem_impl_Instance.app_subsystem.control.water_in</seg>
+      </bo>
+    </element>
+    <element uuid="06784008-d15d-45e4-84e6-8f803edd5a56" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>water_data_out : SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.water_monitor.water_out -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.water_out</seg>
+      </bo>
+    </element>
+    <element uuid="42ca093e-c747-4755-835a-fc07081b7496" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>water_data_out : SmartAkwariumSystem_impl_Instance.sensor_subsystem.sensors.water_out -> SmartAkwariumSystem_impl_Instance.sensor_subsystem.water_out</seg>
+      </bo>
+    </element>
+    <element uuid="e5c9e0f3-6d9d-4726-8e5f-589bf6348414" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>water_recv : SmartAkwariumSystem_impl_Instance.water_in -> SmartAkwariumSystem_impl_Instance.app_subsystem.water_in</seg>
+      </bo>
+      <bendpoints>
+        <point x="565.2005004882812" y="10.0"/>
+        <point x="565.2005004882812" y="491.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="0aca6522-b27e-4d65-bc35-45c01e1f413b" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>water_send : SmartAkwariumSystem_impl_Instance.sensor_subsystem.water_out -> SmartAkwariumSystem_impl_Instance.water_out</seg>
+      </bo>
+      <bendpoints>
+        <point x="1015.9244995117188" y="141.0"/>
+        <point x="1015.9244995117188" y="10.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="897ffd92-0a9b-406c-ae48-7c44d98ad8b8" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>light_in</seg>
+      </bo>
+      <position y="88.0"/>
+    </element>
+    <element uuid="2a9f7dfc-3c11-4b2f-87db-e50a9173e4aa" manual="true" dockArea="right">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>light_out</seg>
+      </bo>
+      <position x="2207.5898475646973" y="88.0"/>
+    </element>
+    <element uuid="e232cbb0-391c-4d96-8a22-aee7ab4249e7" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>ph_in</seg>
+      </bo>
+      <position y="680.0"/>
+    </element>
+    <element uuid="b4a3d9c5-d21c-4dd9-851b-72b593ae995d" manual="true" dockArea="right">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>ph_out</seg>
+      </bo>
+      <position x="2217.2187538146973" y="229.0"/>
+    </element>
+    <element uuid="4ca0cd7c-e8c4-465e-9eb9-b13170b2b115" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>temperature_in</seg>
+      </bo>
+      <position y="579.0"/>
+    </element>
+    <element uuid="ae53d97e-88a9-42f7-a6d9-1e9c11b6f45c" manual="true" dockArea="right">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>temperature_out</seg>
+      </bo>
+      <position x="2160.1614532470703" y="669.0"/>
+    </element>
+    <element uuid="d14c1f0d-de80-4828-8e16-37f736d1daa5" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>water_in</seg>
+      </bo>
+      <position y="38.0"/>
+    </element>
+    <element uuid="ad94e7d1-1c88-4c7d-8cb5-8f458223e626" manual="true" dockArea="right">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>water_out</seg>
+      </bo>
+      <position x="2199.4453163146973" y="38.0"/>
+    </element>
+    <element uuid="71b33daf-9b59-4310-8b75-542af6dbc9a9" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>flow_specification_instance</seg>
+        <seg>light_end_to_end</seg>
+      </bo>
+    </element>
+    <element uuid="841797bf-937c-42b7-9cbe-00281e2a2505" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>flow_specification_instance</seg>
+        <seg>ph_end_to_end</seg>
+      </bo>
+      <bendpoints>
+        <point x="-147.99998474121094" y="785.0"/>
+        <point x="1706.0" y="1007.0"/>
+        <point x="1700.0" y="213.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="a1c95402-e2b1-4e5e-82a1-bc9265460f0b" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>flow_specification_instance</seg>
+        <seg>temp_end_to_end</seg>
+      </bo>
+      <bendpoints>
+        <point x="575.2005004882812" y="551.0"/>
+        <point x="575.2005004882812" y="641.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="d551f962-920b-4de7-b136-627a69c76964" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>flow_specification_instance</seg>
+        <seg>water_end_to_end</seg>
+      </bo>
+    </element>
+    <bo>
+      <seg>org.osate.ge.diagrams.instance</seg>
+      <seg>system_instance</seg>
+      <seg>/smart_akwarium_split/instances/system_impl_smartakwariumsystem_impl_instance.aaxl2</seg>
+    </bo>
+    <position x="-410.0" y="-60.0"/>
+    <size width="2270.0" height="1130.0"/>
+  </element>
+  <config type="structure" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>org.osate.ge.diagrams.instance</seg>
+      <seg>system_instance</seg>
+      <seg>/smart_akwarium_split/instances/system_impl_smartakwariumsystem_impl_instance.aaxl2</seg>
+    </context>
+  </config>
+</diagram:Diagram>

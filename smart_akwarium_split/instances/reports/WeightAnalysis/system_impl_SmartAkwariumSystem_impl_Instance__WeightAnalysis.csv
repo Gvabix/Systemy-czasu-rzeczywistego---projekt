@@ -1,0 +1,23 @@
+Weight totals Report
+
+Warning! i2c_bus: [L] No net weight plus subcomponent weight or no gross weight
+Warning! wifi_bus: [L] No net weight plus subcomponent weight or no gross weight
+Warning! mem: [L] No net weight plus subcomponent weight or no gross weight
+Warning! cam_mem: [L] No net weight plus subcomponent weight or no gross weight
+Warning! cpu: [L] No net weight plus subcomponent weight or no gross weight
+Warning! camera_cpu: [L] No net weight plus subcomponent weight or no gross weight
+temp_sensor: [L] Sum of weights / gross weight is 0.100 kg (no limit specified)
+ph_sensor: [L] Sum of weights / gross weight is 0.100 kg (no limit specified)
+light_sensor: [L] Sum of weights / gross weight is 0.100 kg (no limit specified)
+water_sensor: [L] Sum of weights / gross weight is 0.100 kg (no limit specified)
+sensor_subsystem: [L] Sum of weights / gross weight is 0.400 kg (no limit specified)
+heater: [L] Sum of weights / gross weight is 0.150 kg (no limit specified)
+light: [L] Sum of weights / gross weight is 0.150 kg (no limit specified)
+ph_act: [L] Sum of weights / gross weight is 0.150 kg (no limit specified)
+pump: [L] Sum of weights / gross weight is 0.150 kg (no limit specified)
+feeder: [L] Sum of weights / gross weight is 0.200 kg (no limit specified)
+camera: [L] Sum of weights / gross weight is 0.300 kg (no limit specified)
+wifi: [L] Sum of weights / gross weight is 0.100 kg (no limit specified)
+app: [L] Sum of weights / gross weight is 0.100 kg (no limit specified)
+app_subsystem: [L] Sum of weights / gross weight is 1.300 kg (no limit specified)
+SmartAkwariumSystem_impl_Instance: [L] Sum of weights / gross weight is 1.700 kg (no limit specified)

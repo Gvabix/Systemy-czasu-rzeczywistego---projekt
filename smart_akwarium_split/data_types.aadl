@@ -1,0 +1,151 @@
+package data_types
+public
+	with Base_Types;
+	with Data_Model;
+	
+	data Timestamp
+  	properties
+    	Data_Model::Data_Representation => Struct;
+	end Timestamp;
+
+	data implementation Timestamp.impl
+  	subcomponents
+    	year       : data Base_Types::Integer;
+    	month      : data Base_Types::Integer;
+    	day        : data Base_Types::Integer;
+    	hour       : data Base_Types::Integer;
+    	minute     : data Base_Types::Integer;
+    	second     : data Base_Types::Integer;
+	end Timestamp.impl;
+  
+ 	data PHDoseData
+  	properties
+    	Data_Model::Data_Representation => Struct;
+	end PHDoseData;
+
+	data implementation PHDoseData.impl
+  	subcomponents
+    	amount: data Base_Types::Integer;  
+    	direction: data Base_Types::Boolean;  
+	end PHDoseData.impl;
+
+  	data TemperatureData
+    properties
+      	Data_Model::Data_Representation => Struct;
+    end TemperatureData;
+    
+  	data implementation TemperatureData.impl
+  	subcomponents
+  		temperature: data Base_Types::Float;
+  		timesmp: data Timestamp.impl;
+  	end TemperatureData.impl;
+
+  	data PHData
+    properties
+      	Data_Model::Data_Representation => Struct;
+    end PHData;
+    
+  	data implementation PHData.impl
+  	subcomponents
+  		ph_level: data Base_Types::Float;
+  		timesmp: data Timestamp.impl;
+  	end PHData.impl;
+  
+  	data LightLevelData
+    properties
+      	Data_Model::Data_Representation => Struct;
+    end LightLevelData;
+    
+  	data implementation LightLevelData.impl
+  	subcomponents
+  		timesmp: data Timestamp.impl;
+  		light_level: data Base_Types::Integer;
+  	end LightLevelData.impl;
+  
+  	data CommandData
+    properties
+      	Data_Model::Data_Representation => Struct;
+    end CommandData;
+    
+  
+	data implementation CommandData.impl
+  	subcomponents
+    	command_type : data Base_Types::Integer;   
+    	command_params : data Base_Types::String;  
+    	timestamp : data Timestamp.impl;
+	end CommandData.impl;
+  
+  	data SchedulerConfig
+    properties
+      	Data_Model::Data_Representation => Struct;
+    end SchedulerConfig;
+    
+ 	data implementation SchedulerConfig.impl
+  	subcomponents
+    	start_hour   : data Base_Types::Integer;
+    	start_minute : data Base_Types::Integer;
+    	end_hour     : data Base_Types::Integer;
+    	end_minute   : data Base_Types::Integer;
+    	enabled      : data Base_Types::Boolean;
+	end SchedulerConfig.impl;
+  
+  	data NetworkPacket
+    properties
+      	Data_Model::Data_Representation => Struct;
+    end NetworkPacket;
+    
+  	data implementation NetworkPacket.impl
+  	subcomponents
+    	packet_type : data Base_Types::Integer;
+    	payload     : data Base_Types::String;  
+    	length      : data Base_Types::Integer;
+    	checksum    : data Base_Types::Integer;
+	end NetworkPacket.impl;
+  
+  	data SensorReading
+    properties
+      	Data_Model::Data_Representation => Struct;
+    end SensorReading;
+    
+  	data implementation SensorReading.impl
+  	subcomponents
+    	value    : data Base_Types::Float;
+    	type_id  : data Base_Types::Integer;
+    	timesmp  : data Timestamp.impl;
+	end SensorReading.impl;
+  
+  	data WaterLevelData
+    properties
+      	Data_Model::Data_Representation => Struct;
+    end WaterLevelData;
+    
+ 	data implementation WaterLevelData.impl
+  	subcomponents
+    	level   : data Base_Types::Integer;
+    	timesmp : data Timestamp.impl;
+	end WaterLevelData.impl;
+
+  	data FeedingCommand
+    properties
+      	Data_Model::Data_Representation => Struct;
+    end FeedingCommand;
+    
+ 	data implementation FeedingCommand.impl
+  	subcomponents
+    	feed_now    : data Base_Types::Boolean;  
+    	feed_amount : data Base_Types::Integer;  
+    	timestamp   : data Timestamp.impl;
+	end FeedingCommand.impl;
+
+  	data CameraCommand
+    properties
+      	Data_Model::Data_Representation => Struct;
+    end CameraCommand;
+    
+  	data implementation CameraCommand.impl
+  	subcomponents
+    	recording : data Base_Types::Boolean;
+    	take_snapshot   : data Base_Types::Boolean;
+    	timestamp       : data Timestamp.impl;
+	end CameraCommand.impl;
+end data_types;

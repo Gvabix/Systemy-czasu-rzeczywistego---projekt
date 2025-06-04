@@ -1,0 +1,62 @@
+Bus load analysis of SmartAkwariumSystem_impl_Instance
+
+
+"Physical Bus","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+"i2c_bus","2000.0","200.0","0.0","0.0"
+"wifi_bus","2000.0","200.0","0.0","0.0"
+
+"Bus i2c_bus has data overhead of 0 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+"temp_sensor.temp_out -> sensors.temp_monitor.temp_in","","0.0","","0.0"
+"ph_sensor.ph_out -> sensors.ph_monitor.ph_in","","0.0","","0.0"
+"light_sensor.light_out -> sensors.light_monitor.light_in","","0.0","","0.0"
+"water_sensor.water_out -> sensors.water_monitor.water_in","","0.0","","0.0"
+"control.control_loop.heater_out -> heater.heater_cmd","","0.0","","0.0"
+"control.control_loop.light_out -> light.light_cmd","","0.0","","0.0"
+"control.feeder.feed_out -> feeder.feed_cmd","","0.0","","0.0"
+"control.pump_ctrl.pump_out -> pump.pump_cmd","","0.0","","0.0"
+
+"Connection temp_sensor.temp_out -> sensors.temp_monitor.temp_in bound to i2c_bus"
+"WARNING: Connection temp_sensor.temp_out -> sensors.temp_monitor.temp_in has no bandwidth budget"
+
+"Connection ph_sensor.ph_out -> sensors.ph_monitor.ph_in bound to i2c_bus"
+"WARNING: Connection ph_sensor.ph_out -> sensors.ph_monitor.ph_in has no bandwidth budget"
+
+"Connection light_sensor.light_out -> sensors.light_monitor.light_in bound to i2c_bus"
+"WARNING: Connection light_sensor.light_out -> sensors.light_monitor.light_in has no bandwidth budget"
+
+"Connection water_sensor.water_out -> sensors.water_monitor.water_in bound to i2c_bus"
+"WARNING: Connection water_sensor.water_out -> sensors.water_monitor.water_in has no bandwidth budget"
+
+"Connection control.control_loop.heater_out -> heater.heater_cmd bound to i2c_bus"
+"WARNING: Connection control.control_loop.heater_out -> heater.heater_cmd has no bandwidth budget"
+
+"Connection control.control_loop.light_out -> light.light_cmd bound to i2c_bus"
+"WARNING: Connection control.control_loop.light_out -> light.light_cmd has no bandwidth budget"
+
+"Connection control.feeder.feed_out -> feeder.feed_cmd bound to i2c_bus"
+"WARNING: Connection control.feeder.feed_out -> feeder.feed_cmd has no bandwidth budget"
+
+"Connection control.pump_ctrl.pump_out -> pump.pump_cmd bound to i2c_bus"
+"WARNING: Connection control.pump_ctrl.pump_out -> pump.pump_cmd has no bandwidth budget"
+
+"Bus wifi_bus has data overhead of 0 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+"wifi.command_out -> control.receiver.command_in","","0.0","","0.0"
+"app.app_out -> control.receiver.command_in","","0.0","","0.0"
+"control.control_loop.status_out -> wifi.status_in","","0.0","","0.0"
+"control.cam_ctrl.camera_out -> camera.camera_cmd","","0.0","","0.0"
+
+"Connection wifi.command_out -> control.receiver.command_in bound to wifi_bus"
+"WARNING: Connection wifi.command_out -> control.receiver.command_in has no bandwidth budget"
+
+"Connection app.app_out -> control.receiver.command_in bound to wifi_bus"
+"WARNING: Connection app.app_out -> control.receiver.command_in has no bandwidth budget"
+
+"Connection control.control_loop.status_out -> wifi.status_in bound to wifi_bus"
+"WARNING: Connection control.control_loop.status_out -> wifi.status_in has no bandwidth budget"
+
+"Connection control.cam_ctrl.camera_out -> camera.camera_cmd bound to wifi_bus"
+"WARNING: Connection control.cam_ctrl.camera_out -> camera.camera_cmd has no bandwidth budget"
+
+

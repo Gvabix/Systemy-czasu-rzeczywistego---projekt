@@ -1,0 +1,82 @@
+package devices
+public
+  with Base_Types;
+  with data_types;
+
+  device TemperatureSensor
+    features
+      temp_out: out data port data_types::TemperatureData;
+      bus_access: requires bus access I2CBus;
+  end TemperatureSensor;
+
+  device PHSensor
+    features
+      ph_out: out data port data_types::PHData;
+      bus_access: requires bus access I2CBus;
+  end PHSensor;
+
+  device LightSensor
+    features
+      light_out: out data port data_types::LightLevelData;
+      bus_access: requires bus access I2CBus;
+  end LightSensor;
+
+  device WaterLevelSensor
+    features
+      water_out: out data port data_types::WaterLevelData;
+      bus_access: requires bus access I2CBus;
+  end WaterLevelSensor;
+
+  device HeaterActuator
+    features
+      heater_cmd: in data port Base_Types::Boolean;
+      bus_access: requires bus access I2CBus;
+  end HeaterActuator;
+
+  device LightActuator
+    features
+      light_cmd: in data port Base_Types::Boolean;
+      bus_access: requires bus access I2CBus;
+  end LightActuator;
+
+  device PHActuator
+    features
+      ph_cmd: in data port data_types::PHDoseData;
+      bus_access: requires bus access I2CBus;
+  end PHActuator;
+
+  device WaterPumpActuator
+    features
+      pump_cmd: in data port Base_Types::Boolean;
+      bus_access: requires bus access I2CBus;
+  end WaterPumpActuator;
+
+  device FishFeeder
+    features
+      feed_cmd: in data port data_types::FeedingCommand;
+      bus_access: requires bus access I2CBus;
+  end FishFeeder;
+
+  device FishCamera
+    features
+      camera_cmd: in data port data_types::CameraCommand;
+      bus_access: requires bus access WiFiBus;
+  end FishCamera;
+
+  device WiFiModule
+    features
+      command_out: out data port data_types::CommandData;
+      status_in: in data port data_types::NetworkPacket;
+      bus_access: requires bus access I2CBus;
+  end WiFiModule;
+
+  device UserAppDevice
+    features
+      in_app: in data port data_types::SensorReading;
+      app_out: out data port data_types::CommandData;
+      bus_access: requires bus access WiFiBus;
+  end UserAppDevice;
+
+  bus I2CBus end I2CBus;
+  bus WiFiBus end WiFiBus;
+end devices;
