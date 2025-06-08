@@ -54,6 +54,8 @@ public
   thread NetworkReceiver
     features
       command_in: in data port data_types::CommandData;
+      feed_out: out data port data_types::FeedingCommand;
+      camera_out: out data port data_types::CameraCommand;
   end NetworkReceiver;
 
   thread implementation NetworkReceiver.impl
@@ -69,7 +71,10 @@ public
       temp_in: in data port data_types::TemperatureData;
       ph_in: in data port data_types::PHData;
       light_in: in data port data_types::LightLevelData;
+      ph_out: out data port data_types::PHDoseData;
       status_out: out data port data_types::NetworkPacket;
+      pump_out: out data port Base_Types::Boolean;
+      water_in: in data port data_types::WaterLevelData;
   end ControlLoop;
 
   thread implementation ControlLoop.impl
@@ -81,6 +86,7 @@ public
   thread FeedingControl
     features
       feed_out: out data port data_types::FeedingCommand;
+      feed_in: in data port data_types::FeedingCommand;
   end FeedingControl;
 
   thread implementation FeedingControl.impl
@@ -92,6 +98,7 @@ public
   thread CameraControl
     features
       camera_out: out data port data_types::CameraCommand;
+      camera_in: in data port data_types::CameraCommand;
   end CameraControl;
 
   thread implementation CameraControl.impl
@@ -99,17 +106,6 @@ public
       Dispatch_Protocol => Periodic;
       Period => 1000ms;
   end CameraControl.impl;
-
-  thread WaterPumpControl
-    features
-      pump_out: out data port Base_Types::Boolean;
-  end WaterPumpControl;
-
-  thread implementation WaterPumpControl.impl
-    properties
-      Dispatch_Protocol => Periodic;
-      Period => 1000ms;
-  end WaterPumpControl.impl;
 
   thread AllertManager
     properties
