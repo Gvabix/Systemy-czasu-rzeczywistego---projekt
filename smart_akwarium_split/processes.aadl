@@ -34,6 +34,17 @@ public
       light_data_out: port light_monitor.light_out -> light_out;
       water_data_out: port water_monitor.water_out -> water_out;
   end SensorProcess.impl;
+  
+  process CommandMuxProcess
+  	features
+    	wifi_command: in data port data_types::CommandData;
+    	app_command: in data port data_types::CommandData;
+    	muxed_command: out data port data_types::CommandData;
+	end CommandMuxProcess;
+	
+  process implementation CommandMuxProcess.impl
+		
+  end CommandMuxProcess.impl;
 
   process ControlProcess
     features
@@ -43,6 +54,7 @@ public
       pump_cmd: out data port Base_Types::Boolean;
       feed_cmd: out data port data_types::FeedingCommand;
       camera_cmd: out data port data_types::CameraCommand;
+      ph_cmd: out data port data_types::PHDoseData;
 
       temperature_in: in data port data_types::TemperatureData;
       ph_in: in data port data_types::PHData;
@@ -58,20 +70,23 @@ public
       receiver: thread threads::NetworkReceiver.impl;
       feeder: thread threads::FeedingControl.impl;
       cam_ctrl: thread threads::CameraControl.impl;
-      pump_ctrl: thread threads::WaterPumpControl.impl;
       alerts: thread threads::AllertManager;
       logger: thread threads::Logger;
     connections
       cmd_conn: port command_in -> receiver.command_in;
       heater_conn: port control_loop.heater_out -> heater_cmd;
       light_conn: port control_loop.light_out -> light_cmd;
+      water_in_conn: port water_in -> control_loop.water_in;
 
+	  feed_in: port receiver.feed_out -> feeder.feed_in;
+	  camera_in: port receiver.camera_out -> cam_ctrl.camera_in;
+	  ph_out_conn: port control_loop.ph_out -> ph_cmd;
       temp_recv: port temperature_in -> control_loop.temp_in;
       ph_recv: port ph_in -> control_loop.ph_in;
       light_recv: port light_in -> control_loop.light_in;
       status_link: port control_loop.status_out -> status_out;
 
-      pump_cmd_conn: port pump_ctrl.pump_out -> pump_cmd;
+      pump_cmd_conn: port control_loop.pump_out -> pump_cmd;
       feed_cmd_conn: port feeder.feed_out -> feed_cmd;
       camera_cmd_conn: port cam_ctrl.camera_out -> camera_cmd;
   end ControlProcess.impl;
