@@ -80,7 +80,12 @@ Komunikacja z użytkownikiem poprzez aplikację (WiFi).
 
 # Architektura systemu.
 
-![Diagram smart akwarium](smart_akwarium_diagram.png)
+### Diagram podsystemu sensorów
+
+![Diagram smart akwarium](podsys1.png)
+
+### Diagram podsystemu aplikacji
+![Diagram smart akwarium](2podsys.png)
 
 # Bibliografia:
 
