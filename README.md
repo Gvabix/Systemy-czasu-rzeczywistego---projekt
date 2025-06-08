@@ -51,8 +51,8 @@ Komunikacja z użytkownikiem poprzez aplikację (WiFi).
 
 ### Threads
 - Wątki monitorujące: `TempMonitor`, `PHMonitor`, `LightMonitor`, `WaterLevelMonitor`
-- Wątki sterujące: `ControlLoop`, `FeedingControl`, `CameraControl`, `WaterPumpControl`
-- Komunikacja i diagnostyka: `NetworkReceiver`, `AllertManager`, `Logger`
+- Wątki sterujące: `ControlLoop`, `FeedingControl`, `CameraControl`
+- Komunikacja i diagnostyka: `NetworkReceiver`, `AllertManager`, `Logger`, `cmd_mux`
   
 ### Process
 - `SensorProcess` – obsługa i przetwarzanie danych z czujników.
@@ -86,6 +86,10 @@ Komunikacja z użytkownikiem poprzez aplikację (WiFi).
 
 ### Diagram podsystemu aplikacji
 ![Diagram smart akwarium](2podsys.png)
+
+
+### Diagram systemu głównego
+![Diagram smart akwarium](3system.png)
 
 # Bibliografia:
 
