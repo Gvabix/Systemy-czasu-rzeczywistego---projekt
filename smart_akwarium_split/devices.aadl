@@ -67,12 +67,12 @@ public
     features
       command_out: out data port data_types::CommandData;
       status_in: in data port data_types::NetworkPacket;
-      bus_access: requires bus access I2CBus;
+      bus_access: requires bus access WiFiBus;
   end WiFiModule;
 
   device UserAppDevice
     features
-      in_app: in data port data_types::SensorReading;
+      in_app: in data port data_types::NetworkPacket;
       app_out: out data port data_types::CommandData;
       bus_access: requires bus access WiFiBus;
   end UserAppDevice;
