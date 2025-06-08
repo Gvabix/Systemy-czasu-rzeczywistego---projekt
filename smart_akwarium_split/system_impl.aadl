@@ -4,6 +4,8 @@ public
   with devices;
   with data_types;
   with SEI;
+  
+  
 
   system SensorSubsystem
     features
@@ -63,11 +65,14 @@ public
       water_data_flow: flow sink water_in;
   end ApplicationSubsystem;
 
-  system implementation ApplicationSubsystem.impl
+    system implementation ApplicationSubsystem.impl
     subcomponents
       control: process processes::ControlProcess.impl {
         SEI::MIPSBudget => 0.8 mips;
       };
+      cmd_mux: process processes::CommandMuxProcess.impl{
+      	SEI::MIPSBudget => 0.8 mips;
+      	};
       heater: device devices::HeaterActuator {
         SEI::GrossWeight => 0.15kg;
       };
@@ -92,15 +97,20 @@ public
       app: device devices::UserAppDevice {
         SEI::GrossWeight => 0.1kg;
       };
-
+      
     connections
       heater_ctrl: port control.heater_cmd -> heater.heater_cmd;
       light_ctrl: port control.light_cmd -> light.light_cmd;
       pump_ctrl: port control.pump_cmd -> pump.pump_cmd;
       feed_ctrl: port control.feed_cmd -> feeder.feed_cmd;
       camera_ctrl: port control.camera_cmd -> camera.camera_cmd;
-      command_conn: port wifi.command_out -> control.command_in;
-      app_command: port app.app_out -> control.command_in;
+      ph_ctrl: port control.ph_cmd -> ph_act.ph_cmd;
+      control_to_app: port control.status_out -> app.in_app;
+
+      command_conn_wifi: port wifi.command_out -> cmd_mux.wifi_command;
+      command_conn_app: port app.app_out -> cmd_mux.app_command;
+      mux_to_control: port cmd_mux.muxed_command -> control.command_in;
+
       status_send: port control.status_out -> wifi.status_in;
 
       temp_data: port temperature_in -> control.temperature_in;
@@ -108,6 +118,7 @@ public
       light_data: port light_in -> control.light_in;
       water_data: port water_in -> control.water_in;
   end ApplicationSubsystem.impl;
+
 
   processor RPiController
     features
@@ -142,21 +153,6 @@ public
   end CameraMemory;
 
   system SmartAkwariumSystem
-    features
-      temperature_out: out data port data_types::TemperatureData;
-      ph_out: out data port data_types::PHData;
-      light_out: out data port data_types::LightLevelData;
-      water_out: out data port data_types::WaterLevelData;
-
-      temperature_in: in data port data_types::TemperatureData;
-      ph_in: in data port data_types::PHData;
-      light_in: in data port data_types::LightLevelData;
-      water_in: in data port data_types::WaterLevelData;
-    flows
-	  temp_end_to_end: flow path temperature_in -> temperature_out;
-	  ph_end_to_end: flow path ph_in -> ph_out;
-	  light_end_to_end: flow path light_in -> light_out;
-	  water_end_to_end: flow path water_in -> water_out;
     properties
       SEI::MIPSCapacity => 2.4 mips;
   end SmartAkwariumSystem;
@@ -181,23 +177,24 @@ public
       };
 
     connections
-      temp_send: port sensor_subsystem.temperature_out -> temperature_out;
-      ph_send: port sensor_subsystem.ph_out -> ph_out;
-      light_send: port sensor_subsystem.light_out -> light_out;
-      water_send: port sensor_subsystem.water_out -> water_out;
+      temp_conn: port sensor_subsystem.temperature_out -> app_subsystem.temperature_in;
+      ph_conn: port sensor_subsystem.ph_out -> app_subsystem.ph_in;
+      light_conn: port sensor_subsystem.light_out -> app_subsystem.light_in;
+      water_conn: port sensor_subsystem.water_out -> app_subsystem.water_in;
 
-      temp_recv: port temperature_in -> app_subsystem.temperature_in;
-      ph_recv: port ph_in -> app_subsystem.ph_in;
-      light_recv: port light_in -> app_subsystem.light_in;
-      water_recv: port water_in -> app_subsystem.water_in;
+	
 
     properties
       Actual_Connection_Binding => (reference(i2c_bus)) applies to
-        sensor_subsystem.temp_conn, sensor_subsystem.ph_conn, sensor_subsystem.light_conn, sensor_subsystem.water_conn,
-        app_subsystem.heater_ctrl, app_subsystem.light_ctrl, app_subsystem.pump_ctrl, app_subsystem.feed_ctrl;
+        sensor_subsystem.temp_conn, sensor_subsystem.ph_conn, sensor_subsystem.light_conn, sensor_subsystem.water_conn, mem.mem_i2c;
+        
+      
+        
 
       Actual_Connection_Binding => (reference(wifi_bus)) applies to
-        app_subsystem.camera_ctrl, app_subsystem.command_conn, app_subsystem.app_command, app_subsystem.status_send;
+ 		app_subsystem.camera_ctrl, app_subsystem.command_conn_wifi, app_subsystem.command_conn_app, mem.mem_wifi, cam_mem.mem_wifi,
+  		app_subsystem.status_send;
+
 
       Actual_Processor_Binding => (reference(cpu)) applies to
         sensor_subsystem, app_subsystem;
@@ -206,9 +203,9 @@ public
         app_subsystem.camera;
 
       Actual_Memory_Binding => (reference(mem)) applies to
-        cpu, sensor_subsystem, app_subsystem;
+        cpu;
 
       Actual_Memory_Binding => (reference(cam_mem)) applies to
-        camera_cpu, app_subsystem.camera;
+        camera_cpu;
   end SmartAkwariumSystem.impl;
 end system_impl;
