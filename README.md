@@ -91,6 +91,14 @@ Komunikacja z użytkownikiem poprzez aplikację (WiFi).
 ### Diagram systemu głównego
 ![Diagram smart akwarium](3system.png)
 
+# Analizy
+
+### Analiza Weight Totals
+![analizy](weighttotals.png)
+
+### Analiza MIPS Budget
+![analizy](notbound.png)
+
 # Bibliografia:
 
 - [Empowering Aquarists a Comprehensive Study On IOT-Enabled Smart Aquarium Systems For Remote Monitoring And Control](https://www.researchgate.net/publication/382053839_Empowering_Aquarists_a_Comprehensive_Study_On_IOT-Enabled_Smart_Aquarium_Systems_For_Remote_Monitoring_And_Control)
