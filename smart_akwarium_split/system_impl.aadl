@@ -18,6 +18,8 @@ public
       ph_data_flow: flow source ph_out;
       light_data_flow: flow source light_out;
       water_data_flow: flow source water_out;
+  	properties
+  		SEI::GrossWeight => 0.4kg;
   end SensorSubsystem;
 
   system implementation SensorSubsystem.impl
@@ -63,6 +65,9 @@ public
       ph_data_flow: flow sink ph_in;
       light_data_flow: flow sink light_in;
       water_data_flow: flow sink water_in;
+  	properties
+  		SEI::GrossWeight => 1.3kg;
+  
   end ApplicationSubsystem;
 
     system implementation ApplicationSubsystem.impl
@@ -128,7 +133,8 @@ public
       Scheduling_Protocol => (Round_Robin_Protocol);
       Clock_Period => 1 ms;
       Timing_Properties::Processor_Capacity => 1.0 MIPS;
-      SEI::MIPSCapacity => 1.2 mips;
+      SEI::MIPSCapacity => 4.0 mips;
+      SEI::GrossWeight => 0.3kg;
   end RPiController;
 
   processor CameraProcessor
@@ -139,6 +145,7 @@ public
       Clock_Period => 1 ms;
       Timing_Properties::Processor_Capacity => 1.0 MIPS;
       SEI::MIPSCapacity => 1.0 mips;
+      SEI::GrossWeight => 0.3kg;
   end CameraProcessor;
 
   memory MainMemory
@@ -155,6 +162,7 @@ public
   system SmartAkwariumSystem
     properties
       SEI::MIPSCapacity => 2.4 mips;
+      SEI::GrossWeight => 3.0kg;
   end SmartAkwariumSystem;
 
   system implementation SmartAkwariumSystem.impl
@@ -207,5 +215,6 @@ public
 
       Actual_Memory_Binding => (reference(cam_mem)) applies to
         camera_cpu;
+      SEI::WeightLimit => 5.0kg;
   end SmartAkwariumSystem.impl;
 end system_impl;
