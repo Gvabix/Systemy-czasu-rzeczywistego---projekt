@@ -2,120 +2,140 @@ package threads
 public
   with Base_Types;
   with data_types;
+  with SEI;
 
   thread TempMonitor
     features
-      temp_in: in data port data_types::TemperatureData;
+      temp_in:  in data port data_types::TemperatureData;
       temp_out: out data port data_types::TemperatureData;
   end TempMonitor;
 
   thread implementation TempMonitor.impl
     properties
       Dispatch_Protocol => Periodic;
-      Period => 1000ms;
-  end TempMonitor.impl;
+      Period             => 1000 ms;
+      Timing_Properties::Deadline               => 1000 ms;
+      SEI::MIPSBudget                           => 0.05 mips;
+    end TempMonitor.impl;
 
   thread PHMonitor
     features
-      ph_in: in data port data_types::PHData;
+      ph_in:  in data port data_types::PHData;
       ph_out: out data port data_types::PHData;
   end PHMonitor;
 
   thread implementation PHMonitor.impl
     properties
       Dispatch_Protocol => Periodic;
-      Period => 1000ms;
-  end PHMonitor.impl;
+      Period             => 1000 ms;
+      Timing_Properties::Deadline               => 1000 ms;
+      SEI::MIPSBudget                           => 0.05 mips;
+    end PHMonitor.impl;
 
   thread LightMonitor
     features
-      light_in: in data port data_types::LightLevelData;
+      light_in:  in data port data_types::LightLevelData;
       light_out: out data port data_types::LightLevelData;
   end LightMonitor;
 
   thread implementation LightMonitor.impl
     properties
       Dispatch_Protocol => Periodic;
-      Period => 1000ms;
-  end LightMonitor.impl;
+      Period             => 1000 ms;
+      Timing_Properties::Deadline               => 1000 ms;
+      SEI::MIPSBudget                           => 0.05 mips;
+    end LightMonitor.impl;
 
   thread WaterLevelMonitor
     features
-      water_in: in data port data_types::WaterLevelData;
+      water_in:  in data port data_types::WaterLevelData;
       water_out: out data port data_types::WaterLevelData;
   end WaterLevelMonitor;
 
   thread implementation WaterLevelMonitor.impl
     properties
       Dispatch_Protocol => Periodic;
-      Period => 1000ms;
-  end WaterLevelMonitor.impl;
+      Timing_Properties::Deadline               => 1000 ms;
+      SEI::MIPSBudget                           => 0.05 mips;
+    end WaterLevelMonitor.impl;
 
   thread NetworkReceiver
     features
-      command_in: in data port data_types::CommandData;
-      feed_out: out data port data_types::FeedingCommand;
-      camera_out: out data port data_types::CameraCommand;
+      command_in:  in  data port data_types::CommandData;
+      feed_out:    out data port data_types::FeedingCommand;
+      camera_out:  out data port data_types::CameraCommand;
   end NetworkReceiver;
 
   thread implementation NetworkReceiver.impl
     properties
       Dispatch_Protocol => Periodic;
-      Period => 1000ms;
-  end NetworkReceiver.impl;
+      Period             => 1000 ms;
+      Timing_Properties::Deadline               => 1000 ms;
+      SEI::MIPSBudget                           => 0.05 mips;
+    end NetworkReceiver.impl;
 
   thread ControlLoop
     features
       heater_out: out data port Base_Types::Boolean;
-      light_out: out data port Base_Types::Boolean;
-      temp_in: in data port data_types::TemperatureData;
-      ph_in: in data port data_types::PHData;
-      light_in: in data port data_types::LightLevelData;
-      ph_out: out data port data_types::PHDoseData;
+      light_out:  out data port Base_Types::Boolean;
+      temp_in:    in  data port data_types::TemperatureData;
+      ph_in:      in  data port data_types::PHData;
+      light_in:   in  data port data_types::LightLevelData;
+      ph_out:     out data port data_types::PHDoseData;
       status_out: out data port data_types::NetworkPacket;
-      pump_out: out data port Base_Types::Boolean;
-      water_in: in data port data_types::WaterLevelData;
+      pump_out:   out data port Base_Types::Boolean;
+      water_in:   in  data port data_types::WaterLevelData;
   end ControlLoop;
 
   thread implementation ControlLoop.impl
     properties
       Dispatch_Protocol => Periodic;
-      Period => 1000ms;
-  end ControlLoop.impl;
+      Period             => 1000 ms;
+      Timing_Properties::Deadline               => 1000 ms;
+      SEI::MIPSBudget                           => 0.10 mips;
+    end ControlLoop.impl;
 
   thread FeedingControl
     features
       feed_out: out data port data_types::FeedingCommand;
-      feed_in: in data port data_types::FeedingCommand;
+      feed_in:  in  data port data_types::FeedingCommand;
   end FeedingControl;
 
   thread implementation FeedingControl.impl
     properties
       Dispatch_Protocol => Periodic;
-      Period => 1000ms;
-  end FeedingControl.impl;
+      Period             => 1000 ms;
+      Timing_Properties::Deadline               => 1000 ms;
+      SEI::MIPSBudget                           => 0.05 mips;
+    end FeedingControl.impl;
 
   thread CameraControl
     features
       camera_out: out data port data_types::CameraCommand;
-      camera_in: in data port data_types::CameraCommand;
+      camera_in:  in  data port data_types::CameraCommand;
   end CameraControl;
 
   thread implementation CameraControl.impl
     properties
       Dispatch_Protocol => Periodic;
-      Period => 1000ms;
-  end CameraControl.impl;
+      Period             => 1000 ms;
+      Timing_Properties::Deadline               => 1000 ms;
+      SEI::MIPSBudget                           => 0.05 mips;
+    end CameraControl.impl;
 
   thread AllertManager
     properties
       Dispatch_Protocol => Periodic;
-      Period => 1000ms;
-  end AllertManager;
+      Period             => 1000 ms;
+      Timing_Properties::Deadline               => 1000 ms;
+      SEI::MIPSBudget                           => 0.02 mips;
+    end AllertManager;
 
   thread Logger
     properties
       Dispatch_Protocol => Periodic;
-      Period => 1000ms;
-  end Logger;
+      Period             => 1000 ms;
+      Timing_Properties::Deadline               => 1000 ms;
+      SEI::MIPSBudget                           => 0.02 mips;
+    end Logger;
 end threads;
