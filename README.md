@@ -6,7 +6,7 @@
 
 ## Opis projektu
 
-**Smart Akwarium** to zintegrowany system monitorowania i sterowania parametrami wodnego akwarium, realizowany w języku AADL. System składa się z wielu komponentów podzielonych na różne typy AADL. Model systemu wykorzystuje właściwości SEI oraz analiz MIPS i przepustowości magistrali (Bus Load).
+**Smart Akwarium** to zintegrowany system monitorowania i sterowania parametrami wodnego akwarium, realizowany w języku AADL. System składa się z wielu komponentów podzielonych na różne typy AADL. Model systemu wykorzystuje właściwości SEI oraz analiz MIPS.
 
 ## Funkcjonalności systemu:
 
